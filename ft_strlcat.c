@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 16:17:08 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/04/28 17:51:07 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/04 11:20:57 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ size_t	ft_strlen (const char *str)
 int	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	int	count;
-	int	dest_init_length;
+	int	dst_init_length;
 	
 	count = 0;
 	dst_init_length = ft_strlen(dst);
@@ -37,12 +37,12 @@ int	ft_strlcat(char *dst, const char *src, size_t size)
 	//	return(ft_strlen(dst));
 	while ((count <= size)  && (src[count] !='\0'))
 	{
-			dst[(dst_init_legth + count)] = src[count];
+			dst[(dst_init_length + count)] = src[count];
 			printf("%d %c %c %s\n", count, dst[(count + ft_strlen(dst))], src[count], dst);
 			count++;
 	}
 	dst[(count + ft_strlen(dst))] = '\0';
-	return(ft_strlen(dst) + ft_strlen(src));
+	return(ft_strlen(dst));
 }
 #include	<stdio.h>
 
@@ -53,7 +53,7 @@ int	main(void)
 		
 	printf("%s\n", src_string);
 	printf("%s\n", dst_string);
-	printf("\n%d\n", ft_strlcat(dst_string, src_string, 20));
+	printf("\n%d\n", ft_strlcat(dst_string, src_string, 3));
 	printf("%s\n", dst_string);
 	return (0);
 }

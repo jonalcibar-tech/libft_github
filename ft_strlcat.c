@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 16:17:08 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/04 11:20:57 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/04 13:30:29 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,31 @@ int	ft_strlcat(char *dst, const char *src, size_t size)
 	while ((count <= size)  && (src[count] !='\0'))
 	{
 			dst[(dst_init_length + count)] = src[count];
-			printf("%d %c %c %s\n", count, dst[(count + ft_strlen(dst))], src[count], dst);
 			count++;
 	}
 	dst[(count + ft_strlen(dst))] = '\0';
 	return(ft_strlen(dst));
 }
 #include	<stdio.h>
+#include	<bsd/string.h>
+#include	<string.h>
 
 int	main(void)
 {
 	const char	src_string[] = "source";
 	char		dst_string[20] = "destiny";
-		
+	int			contar;
+	
 	printf("%s\n", src_string);
 	printf("%s\n", dst_string);
-	printf("\n%d\n", ft_strlcat(dst_string, src_string, 3));
-	printf("%s\n", dst_string);
+	contar = 0;
+	while (contar <= 18)
+	{
+		strcpy(dst_string, "destiny");
+		printf("%d %zu %s\n", contar, strlcat(dst_string, src_string, contar), dst_string);
+		printf("%d %zu %s\n\n", contar, ft_strlcat(dst_string, src_string, contar), dst_string);
+		contar++;
+	}
 	return (0);
 }
 /*

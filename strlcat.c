@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 16:17:08 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/04/28 18:04:32 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/04 11:47:43 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	main(void)
 	strcpy(dst, dst_string);
 	printf("%s\n", src);
 	printf("%s\n", dst);
-	printf("%zu\n", strlcat(dst, src, (strlen(src) + strlen(dst)+1)));
-	printf("%zu\n", strlcat(dst, src, 0));
+	//printf("%zu\n", strlcat(dst, src, (strlen(src) + strlen(dst)+1)));
+	printf("%zu\n", strlcat(dst, src, 9));
 	printf("%s\n", dst);
 	return (0);
 }

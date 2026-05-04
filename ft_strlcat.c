@@ -6,14 +6,16 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 16:17:08 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/01 14:03:06 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/04/28 17:51:07 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// para pruebas
-int	ft_strlen(char *str)
-{
-	int	count;
+#include	<stddef.h>
+
+
+size_t	ft_strlen (const char *str)
+{	
+	int		count;
 
 	count = 0;
 	while (str[count] != '\0')
@@ -23,39 +25,33 @@ int	ft_strlen(char *str)
 	return (count);
 }
 
-#include <stddef.h>
+#include	<stdio.h>
 int	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	int	count;
-
-	if (size ==  0)
-		return (ft_strlen(src));
+	
 	count = 0;
-	while ((count <= size ) && ((char *)src) != '\0')
+	//if (size = 0)
+	//	return(ft_strlen(dst));
+	while ((count <= size)  && (src[count] !='\0'))
 	{
-		dst[ft_strlen(dst) + count] = src[count];
-		printf("%c", dst[ft_strlen(dst) + count]);
-		count++;
+			dst[(count + ft_strlen(dst))] = src[count];
+			printf("%d %c %c %s\n", count, dst[(count + ft_strlen(dst))], src[count], dst);
+			count++;
 	}
-	dst[ft_strlen(dst) + count] = '\0';
-	return(ft_strlen(dst) + count);
+	dst[(count + ft_strlen(dst))] = '\0';
+	return(ft_strlen(dst) + ft_strlen(src));
 }
-
-
 #include	<stdio.h>
-#include	<bsd/string.h>
-#include	<string.h>
 
 int	main(void)
 {
 	const char	src_string[] = "source";
-	char		in_dst_string[] = "destiny";
-	char		dst_string[(sizeof(src_string)) + (sizeof(in_dst_string))];
-	
-	strcpy(dst_string, in_dst_string);
+	char		dst_string[20] = "destiny";
+		
 	printf("%s\n", src_string);
 	printf("%s\n", dst_string);
-	printf("%zu\n", ft_strlcat(dst_string, src_string, sizeof(dst_string)));
+	printf("\n%d\n", ft_strlcat(dst_string, src_string, 20));
 	printf("%s\n", dst_string);
 	return (0);
 }
@@ -67,5 +63,5 @@ of dst.  It will append at most size - strlen(dst) - 1 bytes, NUL-termi‐
 nating the result.  The initial character of the string(src) overwrites the
 Null-character present at the end of the string(dest).
 
-strlcat() returns  the initial length of dst plus the length of src. 
+returns strlcat() the initial length of dst plus the length of src. 
 */

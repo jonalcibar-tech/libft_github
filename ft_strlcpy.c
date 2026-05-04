@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:51:42 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/04/30 15:05:10 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/04 10:15:39 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ int	ft_strlcpy(char *dst, const char *src, size_t size)
 	return (*src);
 }
 
-//#include <stdio.h>
-//#include <bsd/string.h>
+/*
+#include <stdio.h>
+#include <bsd/string.h>
 
 int	main(void)
 {
@@ -44,7 +45,7 @@ int	main(void)
 	printf("%p   %s\n", &dst_string, dst_string);
 	return 0;
 }
-
+*/	
 /*
 strlcpy(char *dst, const char *src, size_t size);
 

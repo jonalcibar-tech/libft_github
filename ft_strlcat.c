@@ -29,13 +29,15 @@ size_t	ft_strlen (const char *str)
 int	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	int	count;
+	int	dest_init_length;
 	
 	count = 0;
+	dst_init_length = ft_strlen(dst);
 	//if (size = 0)
 	//	return(ft_strlen(dst));
 	while ((count <= size)  && (src[count] !='\0'))
 	{
-			dst[(count + ft_strlen(dst))] = src[count];
+			dst[(dst_init_legth + count)] = src[count];
 			printf("%d %c %c %s\n", count, dst[(count + ft_strlen(dst))], src[count], dst);
 			count++;
 	}

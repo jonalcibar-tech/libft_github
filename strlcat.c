@@ -6,10 +6,9 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 16:17:08 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/01 13:44:57 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/04/28 18:04:32 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include	<stdio.h>
 #include	<bsd/string.h>
@@ -18,16 +17,16 @@
 int	main(void)
 {
 
-	const char	src_string[] = "source";
-	char		in_dst_string[] = "destin";
-	char		dst_string[(sizeof(src_string)) + (sizeof(in_dst_string))];
+	const char	src[] = "source";
+	char		dst_string[] = "destiny";
+	char		dst[strlen(dst_string + strlen(src))];
 	
-	strcpy(dst_string, in_dst_string);
-	printf("%s\n", src_string);
-	printf("%s\n", dst_string);
-	//printf("%zu\n", strlcat(dst_string, src_string, sizeof(dst_string)));
-	printf("%zu\n", strlcat(dst_string, src_string, sizeof(dst_string)));
-	printf("%s\n", dst_string);
+	strcpy(dst, dst_string);
+	printf("%s\n", src);
+	printf("%s\n", dst);
+	printf("%zu\n", strlcat(dst, src, (strlen(src) + strlen(dst)+1)));
+	printf("%zu\n", strlcat(dst, src, 0));
+	printf("%s\n", dst);
 	return (0);
 }
 /*

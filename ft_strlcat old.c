@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat old.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 16:17:08 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/06 12:48:11 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/06 11:30:22 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,18 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	int	count;
 	int init_dst_len;
 
-	init_dst_len = ft_strlen(dst);
+	init_dst_len = ft_strlen(src);
 	count = 0;
 	
-	if((int)size <= ft_strlen(dst))+1; //para saltar el \0
-		return(size + (size_t)ft_strlen(src)); // lo exige la función
-	while ((src[count] != '\0') && ((init_dst_len + count) < (size)))
+	if((int)size <= ft_strlen(dst))
+		return((size_t)init_dst_len);
+	while ((src[count] != '\0') && ((init_dst_len + count) < (size-1)))
 	{
-		printf("%s", "bucle si");
 		dst[init_dst_len + count] = src [count];
 		count++;
 	}
 	dst[init_dst_len + count] = '\0';
-	return (init_dst_len + ft_strlen(src)-2); //porque hay que quitar \0 del fin src y dst
+	return (init_dst_len + ft_strlen(src)); //porque hay que quitar  \0 de la dst inicial
 }
 
 #include	<bsd/string.h>

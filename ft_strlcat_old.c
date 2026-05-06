@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat copy.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 16:17:08 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/06 17:25:59 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/06 15:31:43 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,26 @@ size_t	ft_strlen (const char *str)
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int		count;
-	size_t	init_dst_len;
+	int	count;
+	int init_dst_len;
 
 	init_dst_len = ft_strlen(dst);
 	count = 0;
-	if (size < init_dst_len)
-		return (size + ft_strlen(src));
-	while ((src[count] != '\0') && (dst[count] != '\0') && (count < size))
+	if(size = 0)
+		return(size + (size_t)ft_strlen(src)); // lo exige la función
+	if((int)size <= ft_strlen(dst)) 
+	{	
+		printf("%zu %zu", size, ft_strlen(dst));
+		return(size + (size_t)ft_strlen(src)); // lo exige la función
+	}
+	while ((src[count] != '\0') && ((init_dst_len + count) < (size)))
 	{
-		dst[init_dst_len + count] = src[count];
-		//printf("bucle: dst %c src %c\n", dst[init_src_len + count], src[count]);
-		//printf("bucle: dst %ld src %d\n", (init_src_len + count), count);
-		printf("%s\n", dst);
+		printf("%s", "bucle ");
+		//dst[init_dst_len + count] = src [count];
 		count++;
 	}
 	dst[init_dst_len + count] = '\0';
-	return (init_dst_len + count);
+	return (init_dst_len + ft_strlen(src)-2); //porque hay que quitar \0 del fin src y dst
 }
 
 #include	<bsd/string.h>
@@ -53,7 +56,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 int	main(void)
 {
 	const char	src_string[] = "source";
-	char		temp_dest_string[] = "dest";
+	char		temp_dest_string[] = "destiny";
 	char		dst_string[20] = "";		
 	size_t		contar;
 
@@ -66,7 +69,6 @@ int	main(void)
 	{
 		strcpy(dst_string, temp_dest_string);
 		printf("%zu %zu %s %c\n", contar, strlcat(dst_string, src_string, contar), dst_string, '-');
-		strcpy(dst_string, temp_dest_string);
 		printf("%zu %zu %s %c\n\n", contar, ft_strlcat(dst_string, src_string, contar), dst_string, '-');
 		contar++;
 	}

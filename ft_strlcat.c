@@ -6,11 +6,11 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 16:17:08 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/08 13:52:31 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/08 13:55:51 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//test2
+//test2 keiner
 #include	<stddef.h>
 
 size_t	ft_strlen (const char *str)

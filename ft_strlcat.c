@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//test
 #include	<stddef.h>
 
 size_t	ft_strlen (const char *str)
@@ -32,19 +33,28 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	init_dst_len;
 
 	init_dst_len = ft_strlen(dst);
-	count = 0;
-	if (size < init_dst_len)
-		return (size + ft_strlen(src));
-	while ((src[count] != '\0') && (dst[count] != '\0') && (count < size))
+	if (size <= init_dst_len)
 	{
-		dst[init_dst_len + count] = src[count];
-		//printf("bucle: dst %c src %c\n", dst[init_src_len + count], src[count]);
-		//printf("bucle: dst %ld src %d\n", (init_src_len + count), count);
-		printf("%s\n", dst);
-		count++;
+			return (size + ft_strlen(src));
 	}
-	dst[init_dst_len + count] = '\0';
-	return (init_dst_len + count);
+	else
+	{
+		dst[size] = src[1];
+		printf("%zu size == init_dst_len\ndst[size]: %c %s\n", size, dst[size], dst);
+		return (init_dst_len + ft_strlen(src));
+	}
+	else
+	{
+		count = 0;
+		while ((src[count] != '\0') && ((init_dst_len + count) < size))
+		{
+			printf("en bucle\n");
+			dst[init_dst_len + count] = src[count];
+			count++;
+		}
+		dst[init_dst_len + count] = '\0';
+		return (init_dst_len + ft_strlen(src));
+	}
 }
 
 #include	<bsd/string.h>

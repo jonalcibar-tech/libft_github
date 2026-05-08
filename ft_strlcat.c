@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 16:17:08 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/06 17:25:59 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/08 13:41:15 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,26 +31,33 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	int		count;
 	size_t	init_dst_len;
+	size_t	count_src;
 
 	init_dst_len = ft_strlen(dst);
-	if (size <= init_dst_len)
+	if (size < init_dst_len) 
 	{
+			printf("size < init_dest_len\n");
 			return (size + ft_strlen(src));
 	}
-	else
+	else if (size == init_dst_len)
 	{
+		printf("size == init_dst_len\n");
 		dst[size] = src[1];
-		printf("%zu size == init_dst_len\ndst[size]: %c %s\n", size, dst[size], dst);
+		dst[size+1] = '\0'; //dst debe terminar en \0
+		//printf("%zu size == init_dst_len\ndst[size]: %c %s\n", size, dst[size], dst);
 		return (init_dst_len + ft_strlen(src));
 	}
 	else
 	{
-		count = 0;
-		while ((src[count] != '\0') && ((init_dst_len + count) < size))
+		count = init_dst_len;
+		count_src = 1;
+		while ((src[count_src] != '\0') && ((count) < size))
 		{
-			printf("en bucle\n");
-			dst[init_dst_len + count] = src[count];
+			printf("en bucle. count=%d src_count=%zu\n", count, count_src);
+			dst[count] = src[count_src];
 			count++;
+			count_src++;
+			
 		}
 		dst[init_dst_len + count] = '\0';
 		return (init_dst_len + ft_strlen(src));

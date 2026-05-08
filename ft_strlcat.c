@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 16:17:08 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/08 13:55:51 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/08 16:02:02 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,26 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	else if (size == init_dst_len)
 	{
 		printf("size == init_dst_len\n");
-		dst[size] = src[1];
 		dst[size+1] = '\0'; //dst debe terminar en \0
 		//printf("%zu size == init_dst_len\ndst[size]: %c %s\n", size, dst[size], dst);
 		return (init_dst_len + ft_strlen(src));
 	}
+	else if (size == (init_dst_len + 1))
+		{
+		dst[size] = '\0';
+		return (init_dst_len + ft_strlen(src));
+		}
 	else
 	{
-		count = init_dst_len;
+		count = init_dst_len + 2;
 		count_src = 1;
-		while ((src[count_src] != '\0') && ((count) < size))
+		printf("Antes bucle. count=%d src_count=%zu\n", count, count_src);
+		while (count< size)
 		{
 			printf("en bucle. count=%d src_count=%zu\n", count, count_src);
-			dst[count] = src[count_src];
+			dst[count-1] = src[count_src];
 			count++;
 			count_src++;
-			
 		}
 		dst[init_dst_len + count] = '\0';
 		return (init_dst_len + ft_strlen(src));

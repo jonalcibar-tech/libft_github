@@ -6,10 +6,11 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 10:43:59 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/15 16:54:21 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/15 16:55:29 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//test
 #include <stddef.h>
 
 void *ft_memchr(const void *s, int c, size_t n)

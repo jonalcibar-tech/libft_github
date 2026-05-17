@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 10:43:59 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/15 16:55:29 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/17 12:06:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//test
+//test 2
 #include <stddef.h>
 
 void *ft_memchr(const void *s, int c, size_t n)

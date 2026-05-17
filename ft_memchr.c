@@ -10,9 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//test 3
-#include <stddef.h>
-
+#include	<stddef.h>
+#include	<stdio.h>
 void *ft_memchr(const void *s, int c, size_t n)
 {
 	int		i;
@@ -20,9 +19,12 @@ void *ft_memchr(const void *s, int c, size_t n)
 	
 	i = 0;
 	tmp_s = (char*)s;
-	while ((i < n) && tmp_s[i] && tmp_s[i] != c)
+	while ((i < n) && tmp_s[i] != c)
 		i++;
-	return ((void*)tmp_s[i]);
+	if (tmp_s[i] == c)
+		return (&tmp_s[i]);
+	else
+		return (NULL);
 }
 #include	<stddef.h>
 #include	<string.h>
@@ -34,8 +36,8 @@ int	main(void)
 	int		c;
 	size_t	n;
 
-	c = 'd';
-	n = 5;
+	c = 'W';
+	n = 8;
 	printf("%s %c %zu %s\n", s, c, n, (char*)memchr(s, c, n));
 	printf("%s %c %zu %s\n", s, c, n, (char*)ft_memchr(s, c, n));
 	return (0);

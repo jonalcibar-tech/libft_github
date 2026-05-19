@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 15:32:17 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/19 18:30:12 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/19 18:44:19 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,16 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
 	size_t			i;
 	unsigned char	*tmp_s1;
 	unsigned char	*tmp_s2;
-	//unsigned char	c1;
-	//unsigned char	c2;
 
 	i = 0;
 	tmp_s1 = (unsigned char *)s1;
 	tmp_s2 = (unsigned char *)s2;
 	while (i < n)
 	{
-		printf("%zu %c- %c-\n", i, tmp_s1[i],  tmp_s2 [i]);
 		if (tmp_s1[i] != tmp_s2 [i])
-		{
 			return (tmp_s1[i] - tmp_s2[i]);
-		}
-		else
-		{		
+		else 	
 			i++;
-		}
 	}
 	return (0);
 }
@@ -46,15 +39,14 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
 
 int	main(void)
 {
-	const char	s1[] = "Hello Wox";
+	const char	s1[] = "Hello Wor";
 	const char	s2[] = "Hello World";
 	size_t	n;
 
-	n = 20;
+	n = 5;
 	printf("%s %s %ld-\n", s1, s2, n);
 	printf("%d-\n", memcmp(s1, s2, n));
 	printf("%d-\n", ft_memcmp(s1, s2, n));
-	//printf;
 	return (0);
 }
 /*

@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 11:36:29 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/04/28 10:48:05 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/20 12:52:51 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int	count;
+	size_t	count;
 	char	*temporary_array[n];
 
 	count = 0;

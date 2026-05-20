@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 11:36:29 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/04/24 16:24:50 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/20 12:44:35 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	int		count;
+	size_t	count;
 	char	*temp;
 
 	temp = (char *) s;
@@ -27,7 +27,7 @@ void	*ft_memset(void *s, int c, size_t n)
 	return (s);
 }
 
-/*
+
 #include	<stdio.h>
 
 int	main(void)
@@ -49,4 +49,4 @@ int	main(void)
 	//pointed to by s with the constant byte c.
 	//he memset() function returns a pointer to the memory area s.
 }
-*/
+

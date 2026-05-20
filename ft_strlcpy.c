@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:51:42 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/04 11:13:17 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/20 12:53:11 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	int	count;
+	size_t	count;
 
 	count = 0;
 	if (size != 0)

@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat_old.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 16:17:08 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/09 15:26:06 by codespace        ###   ########.fr       */
+/*   Updated: 2026/05/20 14:45:05 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+//test2 keiner
+#include	<stddef.h>
 
-size_t ft_strlen(const char *str)
-{
-	int count;
+size_t	ft_strlen (const char *str)
+{	
+	int		count;
 
 	count = 0;
 	while (str[count] != '\0')
@@ -24,41 +25,41 @@ size_t ft_strlen(const char *str)
 	return (count);
 }
 
-#include <stdio.h>
+#include	<stdio.h>
 
-size_t ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int count;
-	size_t init_dst_len;
-	size_t count_src;
+	int		count;
+	size_t	init_dst_len;
+	size_t	count_src;
 
 	init_dst_len = ft_strlen(dst);
-	if (size < init_dst_len)
+	if (size < init_dst_len) 
 	{
-		printf("size < init_dest_len\n");
-		return (size + ft_strlen(src));
+			printf("size < init_dest_len\n");
+			return (size + ft_strlen(src));
 	}
 	else if (size == init_dst_len)
 	{
 		printf("size == init_dst_len\n");
-		dst[size + 1] = '\0'; // dst debe terminar en \0
-		// printf("%zu size == init_dst_len\ndst[size]: %c %s\n", size, dst[size], dst);
+		dst[size+1] = '\0'; //dst debe terminar en \0
+		//printf("%zu size == init_dst_len\ndst[size]: %c %s\n", size, dst[size], dst);
 		return (init_dst_len + ft_strlen(src));
 	}
 	else if (size == (init_dst_len + 1))
-	{
+		{
 		dst[size] = '\0';
 		return (init_dst_len + ft_strlen(src));
-	}
+		}
 	else
 	{
 		count = init_dst_len + 2;
 		count_src = 1;
 		printf("Antes bucle. count=%d src_count=%zu\n", count, count_src);
-		while (count < size)
+		while (count< size)
 		{
 			printf("en bucle. count=%d src_count=%zu\n", count, count_src);
-			dst[count - 1] = src[count_src];
+			dst[count-1] = src[count_src];
 			count++;
 			count_src++;
 		}
@@ -67,16 +68,17 @@ size_t ft_strlcat(char *dst, const char *src, size_t size)
 	}
 }
 
-#include <bsd/string.h>
-#include <string.h>
+#include	<stdio.h>
+#include	<string.h>
 
-int main(void)
+int	main(void)
 {
-	const char src_string[] = "source";
-	char temp_dest_string[] = "dest";
-	char dst_string[20] = "";
-	size_t contar;
+	const char	src_string[] = "source";
+	char		temp_dest_string[] = "dest";
+	char		dst_string[20] = "";		
+	size_t		contar;
 
+	
 	printf("%s\n", src_string);
 	printf("%s\n", temp_dest_string);
 

@@ -6,15 +6,13 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 15:32:17 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/19 18:44:19 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/20 09:09:28 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include <stddef.h>
 
-#include	<stddef.h>
-#include	<stdio.h>
-
-int ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t			i;
 	unsigned char	*tmp_s1;
@@ -27,28 +25,29 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
 	{
 		if (tmp_s1[i] != tmp_s2 [i])
 			return (tmp_s1[i] - tmp_s2[i]);
-		else 	
+		else
 			i++;
 	}
 	return (0);
 }
-
+/*
 #include	<stddef.h>
 #include	<string.h>
 #include	<stdio.h>
-
+ 
 int	main(void)
 {
-	const char	s1[] = "Hello Wor";
+	const char	s1[] = "Hello War";
 	const char	s2[] = "Hello World";
 	size_t	n;
 
-	n = 5;
+	n = 8;
 	printf("%s %s %ld-\n", s1, s2, n);
 	printf("%d-\n", memcmp(s1, s2, n));
 	printf("%d-\n", ft_memcmp(s1, s2, n));
 	return (0);
 }
+*/	
 /*
 memcmp - compare memory areas
 #include <string.h>

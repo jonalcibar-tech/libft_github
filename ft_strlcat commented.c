@@ -1,3 +1,15 @@
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+{
+    /* get the original length of src */
+    /* get the original length of dst */
+    /* if the length of dst is equal to dstsize */
+    /* simply return the the length of dst + the length of src */
+    /* if dstsize is big enough to accomodate both src and dst */
+    /* concatenate src at the end of dst */
+    /* else, concatenate dstsize character maximum */
+    return (/* length of src + length of dst */);
+}
+
 #include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)

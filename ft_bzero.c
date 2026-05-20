@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 11:36:29 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/04/28 11:04:12 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/20 12:51:15 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	int		count;
+	size_t		count;
 	char	*temp;
 
 	temp = (char *) s;

@@ -6,16 +6,13 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 16:17:08 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/08 16:02:02 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/20 15:44:48 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//test2 keiner
-#include	<stddef.h>
-
-size_t	ft_strlen (const char *str)
-{	
-	int		count;
+size_t ft_strlen(const char *str)
+{
+	int count;
 
 	count = 0;
 	while (str[count] != '\0')
@@ -24,53 +21,21 @@ size_t	ft_strlen (const char *str)
 	}
 	return (count);
 }
+#include <stdio.h>
 
-#include	<stdio.h>
-
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
 {
-	int		count;
-	size_t	init_dst_len;
-	size_t	count_src;
+	size_t	i;
+	
+	i = 0;
+	while (i < size)
+	{
 
-	init_dst_len = ft_strlen(dst);
-	if (size < init_dst_len) 
-	{
-			printf("size < init_dest_len\n");
-			return (size + ft_strlen(src));
-	}
-	else if (size == init_dst_len)
-	{
-		printf("size == init_dst_len\n");
-		dst[size+1] = '\0'; //dst debe terminar en \0
-		//printf("%zu size == init_dst_len\ndst[size]: %c %s\n", size, dst[size], dst);
-		return (init_dst_len + ft_strlen(src));
-	}
-	else if (size == (init_dst_len + 1))
-		{
-		dst[size] = '\0';
-		return (init_dst_len + ft_strlen(src));
-		}
-	else
-	{
-		count = init_dst_len + 2;
-		count_src = 1;
-		printf("Antes bucle. count=%d src_count=%zu\n", count, count_src);
-		while (count< size)
-		{
-			printf("en bucle. count=%d src_count=%zu\n", count, count_src);
-			dst[count-1] = src[count_src];
-			count++;
-			count_src++;
-		}
-		dst[init_dst_len + count] = '\0';
-		return (init_dst_len + ft_strlen(src));
 	}
 }
 
+#include	<stdio.h>
 #include	<bsd/string.h>
-#include	<string.h>
-
 int	main(void)
 {
 	const char	src_string[] = "source";
@@ -86,15 +51,15 @@ int	main(void)
 	while (contar <= 20)
 	{
 		strcpy(dst_string, temp_dest_string);
-		printf("%zu %zu %s %c\n", contar, strlcat(dst_string, src_string, contar), dst_string, '-');
+		printf("%zu %zu %s-\n", contar, strlcat(dst_string, src_string, contar), dst_string);
 		strcpy(dst_string, temp_dest_string);
-		printf("%zu %zu %s %c\n\n", contar, ft_strlcat(dst_string, src_string, contar), dst_string, '-');
+		//printf("%zu %zu %s-\n\n", contar, ft_strlcat(dst_string, src_string, contar), dst_string);
 		contar++;
 	}
 	return (0);
 }
 /*
-strlcat(char *dst, const char *src, size_t size);
+size_t strlcat(char *dst, const char *src, size_t size);
 
 The strlcat() function appends the NUL-terminated string src to the end
 of dst.  It will append at most size - strlen(dst) - 1 bytes, NUL-termi‐

@@ -6,22 +6,11 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 11:36:29 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/22 12:47:46 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/20 12:52:51 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(const char *str)
-{
-	int	count;
-
-	count = 0;
-	while (str[count] != '\0')
-	{
-		count++;
-	}
-	return (count);
-}
-
+#include <stdio.h>
 #include <stddef.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
@@ -43,32 +32,25 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-
+/*
 #include <stdio.h>
 #include <string.h>
 
 int main(void)
 {
-	const char	src_1[] = "see you world";
-	char		dst_1[] = "lola";
-	const char	src_2; 
-	char		dst_2;
-	size_t		n = 2;
+	char	src_string[]  = "see you world";
+	char	dest_string[] = "lola";
 
-	scpy
-
-	printf("%s\n", src_1);
-	printf("%s\n", dst_1);
-	printf("%p %p ", &src_1, &dst_1);
-	printf("%p\n", memmove(dst_1, src_1, n));
-	printf("%s\n%s\n\n", src_1, dst_1);
-	printf("%p %p ", &src_1, &dst_1);
-	printf("%p\n", ft_memmove(dst_2, src_2, n));
-	printf("%s\n%s", src_2, dst_2);
-
+	printf("%s\n", src_string);
+	printf("%s\n", dest_string);
+	printf("%p\n", &src_string);
+	printf("%p\n", &dest_string);
+	printf("%p\n", ft_memmove(dest_string, src_string, strlen(src_string)));
+	printf("%s\n", src_string);
+	printf("%s\n", dest_string);
 	return (0);
 }
-
+*/
 /*
 #include <string.h>
 void *memmove(void *dest, const void *src, size_t n);

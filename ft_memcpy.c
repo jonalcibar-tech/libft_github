@@ -14,7 +14,21 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t	count;
+	size_t		i;
+	const char*	s;
+	char *		d;
+
+	*s = (const char *)src;
+	*0
+	{
+		/* data */
+	};
+	
+
+	{
+		/* code */
+	}
+	
 
 	count = 0;
 	while (count <= n)

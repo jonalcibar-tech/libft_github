@@ -6,30 +6,39 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 11:36:29 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/26 17:00:00 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/27 13:03:00 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-#include <stddef.h>
+#include	<stddef.h>
+#include 	<stdio.h>
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	const char *		s;
-	unsigned char *		d;
+	const char*			s;
+	unsigned char*		d;
 	size_t				i;
 
-	s = src;
-	d = dest;
+	s = (const char*)src;
+	d = (unsigned char*)dest;
+	i = n;
 
-	if (i == 0 || d == '\0')
+	//printf("i= %lu  d[i]= %c\n", i, d[i]);
+
+	if (i == 0 || d[0] == '\0')
 		return (d);
 	i = 0;
-	while (i <= n, i++)
-		d[i] == s[i];
-	return (*d);
+	while (i <n && s[i] != '\0')
+	{
+		d[i] = s[i];
+		printf("i=%lu s[i]=%c d[i]=%c     ", i, s[i], d[i]); 
+		i++;
+	}
+	printf("\n");
+	d[i] = '\0';
+	return (d);
 }
-*/
+
 /* LO QUE PUSO OLIVER
 	while (i <= n)
 	{
@@ -45,19 +54,23 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 int main(void)
 {
-	char	src1[]  = "see you world";
+	const char	src1[20]  = "see you world";
 	char	dest1[20] = "lola"; //string long enough not to end in core dump
 	size_t	n;
-	char*	src2;
-	char*	dest2;
+	char	src2[20] ;
+	char	dest2[20];
 
-	n = strlen(src1) + 1;
-	strcpy(src2, src1);
-	strcpy(dest2, dest1);
+	strcpy (src2, src1);
+	strcpy (dest2, dest1);
+	n =  2; //strlen(src1) + 1;
 
 	printf("%s    %s    %ld\n", src1, dest1, n);
 	memcpy(dest1, src1, n);
-	printf("%s    %s    %ld\n", src1, dest1, n);
+	printf("%s    %s-\n\n", src1, dest1);
+
+	printf("%s    %s    %ld\n", src2, dest2, n);
+ 	ft_memcpy(dest2, src2, n);
+	printf("%s    %s-\n\n", src2, dest2);
 	
 	return (0);
 }

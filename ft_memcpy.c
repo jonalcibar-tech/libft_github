@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 11:36:29 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/27 13:03:00 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/28 14:07:44 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,18 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	s = (const char*)src;
 	d = (unsigned char*)dest;
-	i = n;
 
+	if (n == 0 || s[0] == NULL)
+		return (dest);
+	i = 0;
+	while (i < n && s[i] != NULL)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (dest);
+}
+	/*
 	//printf("i= %lu  d[i]= %c\n", i, d[i]);
 
 	if (i == 0 || d[0] == '\0')
@@ -38,7 +48,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	d[i] = '\0';
 	return (d);
 }
-
+*/
 /* LO QUE PUSO OLIVER
 	while (i <= n)
 	{

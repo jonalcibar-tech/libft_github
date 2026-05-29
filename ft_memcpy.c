@@ -5,63 +5,57 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/23 11:36:29 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/26 17:00:00 by jalcibar         ###   ########.fr       */
+/*   Created: 2026/05/29 13:07:18 by jalcibar          #+#    #+#             */
+/*   Updated: 2026/05/29 16:22:08 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-#include <stddef.h>
+#include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	const char *		s;
-	unsigned char *		d;
-	size_t				i;
+	const char		*s;
+	unsigned char	*d;
+	size_t			i;
 
-	s = src;
-	d = dest;
-
-	if (i == 0 || d == '\0')
-		return (d);
+	s = (const char *) src;
+	d = (unsigned char *) dest;
 	i = 0;
-	while (i <= n, i++)
-		d[i] == s[i];
-	return (*d);
-}
-*/
-/* LO QUE PUSO OLIVER
-	while (i <= n)
+	if (dest == NULL && src == NULL)
+		return (NULL);
+	while (i < n)
 	{
-		((unsigned char *)dest)[count] = ((unsigned char *)src)[count];
-		count++;
+		d[i] = s[i];
+		i++;
 	}
 	return (dest);
 }
-*/
-
+/*
 #include <stdio.h>
 #include <string.h>
 
 int main(void)
 {
-	char	src1[]  = "see you world";
-	char	dest1[20] = "lola"; //string long enough not to end in core dump
+	const char	src1[]  = "1234";
+	char	dest1[] = "abcdef"; //string long enough not to end in core dump
 	size_t	n;
-	char*	src2;
-	char*	dest2;
+	const char	src2[]  = "1234";
+	char	dest2[] = "abcdef"; 
 
-	n = strlen(src1) + 1;
-	strcpy(src2, src1);
-	strcpy(dest2, dest1);
+	// strcpy (src2, src1);
+	// strcpy (dest2, dest1);
+	n =  10; //strlen(src1) + 1;
 
-	printf("%s    %s    %ld\n", src1, dest1, n);
+	printf("%s    %s    %ld\n\n", src1, dest1, n);
 	memcpy(dest1, src1, n);
-	printf("%s    %s    %ld\n", src1, dest1, n);
+	printf("%s    %s-\n", src1, dest1);
+
+	ft_memcpy(dest2, src2, n);
+	printf("%s    %s-\n", src2, dest2);
 	
 	return (0);
 }
-
+*/
 /*
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 The  memcpy()  function  copies  n bytes from memory area src to memory

@@ -6,11 +6,11 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 11:36:29 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/20 12:44:35 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/28 09:44:13 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {
@@ -26,8 +26,7 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
-
-
+/*
 #include	<stdio.h>
 
 int	main(void)
@@ -49,4 +48,4 @@ int	main(void)
 	//pointed to by s with the constant byte c.
 	//he memset() function returns a pointer to the memory area s.
 }
-
+*/

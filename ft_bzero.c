@@ -6,15 +6,15 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 11:36:29 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/20 12:51:15 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/28 09:47:54 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t		count;
+	size_t	count;
 	char	*temp;
 
 	temp = (char *) s;
@@ -25,10 +25,6 @@ void	ft_bzero(void *s, size_t n)
 		count++;
 	}
 }
-
-
-#include	<stdio.h>
-
 /*
 int	main(void)
 {

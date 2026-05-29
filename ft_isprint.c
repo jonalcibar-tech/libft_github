@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 17:11:48 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/04/22 17:14:50 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/28 09:10:58 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_isprint(int c)
 	return (0);
 }
 /*
-include <ctype.h>
+#include <ctype.h>
 #include <stdio.h>
 
 int	main(void)

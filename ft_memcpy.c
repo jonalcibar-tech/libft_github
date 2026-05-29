@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 13:07:18 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/29 13:08:14 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/29 14:10:02 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char	*d;
 	size_t			i;
 
-	s = (const char*) src;
-	d = (unsigned char*) dest;
-	if (n == 0 || d == NULL)
-		return (dest);
+	if (dest == NULL && src == NULL)
+		return (NULL);
+	s = (const char *) src;
+	d = (unsigned char *) dest;
+	// if (n == 0)
+	// 	return (dest);
 	i = 0;
-	while (i < n && s[i] != '\0')
+	while (i < n)
 	{
 		d[i] = s[i];
 		i++;
@@ -36,14 +38,14 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 int main(void)
 {
-	const char	src1[20]  = "1234";
-	char	dest1[20] = "abcdef"; //string long enough not to end in core dump
+	const char	src1[]  = "1234";
+	char	dest1[] = "abcdef"; //string long enough not to end in core dump
 	size_t	n;
-	char	src2[20] ;
-	char	dest2[20];
+	const char	src2[]  = "1234";
+	char	dest2[] = "abcdef"; 
 
-	strcpy (src2, src1);
-	strcpy (dest2, dest1);
+	// strcpy (src2, src1);
+	// strcpy (dest2, dest1);
 	n =  10; //strlen(src1) + 1;
 
 	printf("%s    %s    %ld\n\n", src1, dest1, n);

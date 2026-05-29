@@ -6,23 +6,11 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 11:36:29 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/22 12:47:46 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/29 17:05:17 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(const char *str)
-{
-	int	count;
-
-	count = 0;
-	while (str[count] != '\0')
-	{
-		count++;
-	}
-	return (count);
-}
-
-#include <stddef.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -47,25 +35,28 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 #include <stdio.h>
 #include <string.h>
 
+#include <stdio.h>
+#include <string.h>
+
 int main(void)
 {
-	const char	src_1[] = "see you world";
-	char		dst_1[] = "lola";
-	const char	src_2; 
-	char		dst_2;
-	size_t		n = 2;
+	const char	src1[]  = "1234";
+	char		dest1[] = "abcdef";
+	size_t	n;
+	const char	src2[]  = "1234";
+	char	dest2[] = "abcdef"; 
 
-	scpy
+	// strcpy (src2, src1);
+	// strcpy (dest2, dest1);
+	n =  10; //strlen(src1) + 1;
 
-	printf("%s\n", src_1);
-	printf("%s\n", dst_1);
-	printf("%p %p ", &src_1, &dst_1);
-	printf("%p\n", memmove(dst_1, src_1, n));
-	printf("%s\n%s\n\n", src_1, dst_1);
-	printf("%p %p ", &src_1, &dst_1);
-	printf("%p\n", ft_memmove(dst_2, src_2, n));
-	printf("%s\n%s", src_2, dst_2);
+	printf("%s    %s    %ld\n\n", src1, dest1, n);
+	memcpy(dest1, src1, n);
+	printf("%s    %s-\n", src1, dest1);
 
+	ft_memcpy(dest2, src2, n);
+	printf("%s    %s-\n", src2, dest2);
+	
 	return (0);
 }
 

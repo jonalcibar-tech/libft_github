@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 13:07:18 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/29 14:10:02 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/29 16:22:08 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,11 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char	*d;
 	size_t			i;
 
-	if (dest == NULL && src == NULL)
-		return (NULL);
 	s = (const char *) src;
 	d = (unsigned char *) dest;
-	// if (n == 0)
-	// 	return (dest);
 	i = 0;
+	if (dest == NULL && src == NULL)
+		return (NULL);
 	while (i < n)
 	{
 		d[i] = s[i];

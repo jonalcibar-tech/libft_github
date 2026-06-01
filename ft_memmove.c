@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 11:36:29 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/29 17:05:17 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/06/01 13:19:20 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,27 @@
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t	count;
-	char	*temporary_array[n];
-
+	char	*temporary_array[ft_strlen(src)];
+	
+	if ((src == NULL && dest == NULL) || (n == 0))
+		return (dest);
 	count = 0;
-	while (count <= n)
+	while (count <n)
 	{
 		((char *)temporary_array)[count] = ((const char *)src)[count];
 		count++;
 	}
 	count = 0;
-	while (count <= n)
+	while (count < n)
 	{
 		((char *)dest)[count] = ((char *)temporary_array)[count];
 		count++;
 	}
 	return (dest);
 }
-
+/*
 #include <stdio.h>
 #include <string.h>
-
-#include <stdio.h>
-#include <string.h>
-
 int main(void)
 {
 	const char	src1[]  = "1234";
@@ -46,20 +44,17 @@ int main(void)
 	const char	src2[]  = "1234";
 	char	dest2[] = "abcdef"; 
 
-	// strcpy (src2, src1);
-	// strcpy (dest2, dest1);
-	n =  10; //strlen(src1) + 1;
-
+	n =  10;
 	printf("%s    %s    %ld\n\n", src1, dest1, n);
-	memcpy(dest1, src1, n);
+	memmove(dest1, src1, n);
 	printf("%s    %s-\n", src1, dest1);
 
-	ft_memcpy(dest2, src2, n);
+	ft_memmove(dest2, src2, n);
 	printf("%s    %s-\n", src2, dest2);
 	
 	return (0);
 }
-
+*/
 /*
 #include <string.h>
 void *memmove(void *dest, const void *src, size_t n);

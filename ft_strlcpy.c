@@ -6,12 +6,12 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:51:42 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/20 12:53:11 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/06/01 11:14:04 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-
+/*
 int	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	count;
@@ -28,7 +28,7 @@ int	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	return (*src);
 }
-
+*/
 /*
 #include <stdio.h>
 #include <bsd/string.h>

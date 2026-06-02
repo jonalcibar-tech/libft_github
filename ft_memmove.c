@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 11:36:29 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/01 18:05:30 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/06/02 09:46:28 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	d = (unsigned char *) dest;
 	if (dest == NULL && src == NULL)
 		return (NULL);
+	printf("%p , %p ", &dest, &src);
+	if (dest >= src)
+		printf("palante\n");
+	else
+		printf("patras\n");
+	
 	i = n - 1;
 	while (i >= 0)
 	{
@@ -30,33 +36,31 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-/*
+
 #include <stdio.h>
 #include <string.h>
 int main(void)
 {
-//	char		src1[]  = "lorem ipsum dolor sit amet";
-		char		src1[]  = "hjffgsdgfdhsfgsdhfg";
-
+	char		src1[]  = "abcdefg";
 	char		*dest1;
 	size_t		n;
-	char		src2[]  = "lorem ipsum dolor sit amet";
+	char		src2[]  = "abcdefg";
 	char		*dest2;
 	
-	dest1 = src1 + 1;
-	dest2 = src2 + 1;
+	dest1 = src1 + 3;
+	dest2 = src2 + 3;
 
-	n = 8;
-	printf("%s    %s    %ld\n\n", src1, dest1, n);
+	n = 5;
+	printf("%s    %s    %ld\n\n", dest1, src1, n);
 	memmove(dest1, src1, n);
-	printf("%s    %s-\n", src1, dest1);
+	printf("%s    %s-\n", dest1, src1);
 
 	ft_memmove(dest2, src2, n);
-	printf("%s    %s-\n", src2, dest2);
+	printf("%s    %s-\n", dest2, src2);
 	
 	return (0);
 }
-*/
+
 /*
 #include <string.h>
 void *memmove(void *dest, const void *src, size_t n);

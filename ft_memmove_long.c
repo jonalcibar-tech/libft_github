@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memmove_long.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 11:36:29 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/20 12:52:51 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/06/01 12:07:05 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stddef.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t	count;
 	char	*temporary_array[n];
-
+	
+	if ((src == NULL && dest == NULL) || (n == 0))
+		return (dest);
 	count = 0;
-	while (count <= n)
+	while (count <n)
 	{
 		((char *)temporary_array)[count] = ((const char *)src)[count];
 		count++;
 	}
 	count = 0;
-	while (count <= n)
+	while (count < n)
 	{
 		((char *)dest)[count] = ((char *)temporary_array)[count];
 		count++;
@@ -35,19 +36,22 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 /*
 #include <stdio.h>
 #include <string.h>
-
 int main(void)
 {
-	char	src_string[]  = "see you world";
-	char	dest_string[] = "lola";
+	const char	src1[]  = "1234";
+	char		dest1[] = "abcdef";
+	size_t	n;
+	const char	src2[]  = "1234";
+	char	dest2[] = "abcdef"; 
 
-	printf("%s\n", src_string);
-	printf("%s\n", dest_string);
-	printf("%p\n", &src_string);
-	printf("%p\n", &dest_string);
-	printf("%p\n", ft_memmove(dest_string, src_string, strlen(src_string)));
-	printf("%s\n", src_string);
-	printf("%s\n", dest_string);
+	n =  10;
+	printf("%s    %s    %ld\n\n", src1, dest1, n);
+	memmove(dest1, src1, n);
+	printf("%s    %s-\n", src1, dest1);
+
+	ft_memmove(dest2, src2, n);
+	printf("%s    %s-\n", src2, dest2);
+	
 	return (0);
 }
 */

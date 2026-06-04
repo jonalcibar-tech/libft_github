@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 11:36:29 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/02 09:46:28 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/06/04 13:05:12 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,27 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	const char		*s;
 	unsigned char	*d;
-	int				i;
+	size_t			i;
 
 	s = (const char *) src;
 	d = (unsigned char *) dest;
+
+
 	if (dest == NULL && src == NULL)
 		return (NULL);
-	printf("%p , %p ", &dest, &src);
-	if (dest >= src)
-		printf("palante\n");
-	else
-		printf("patras\n");
-	
-	i = n - 1;
-	while (i >= 0)
+	if (&dest >= &src)
 	{
-		d[i] = s[i];
-		i--;
+		printf("patras\n");
+		i = n;
+		while (i-- > 0)
+			d[i] = s[i];
+	}
+	else
+	{
+		printf("palante\n");
+		i = -1;
+		while (i++ < n)
+			d[i] = s[i];
 	}
 	return (dest);
 }
@@ -41,22 +45,22 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 #include <string.h>
 int main(void)
 {
-	char		src1[]  = "abcdefg";
+	char		src1[]  = "abcde";
 	char		*dest1;
 	size_t		n;
-	char		src2[]  = "abcdefg";
-	char		*dest2;
+	//char		src2[]  = "abcde";
+	//char		*dest2;
 	
-	dest1 = src1 + 3;
-	dest2 = src2 + 3;
+	dest1 = src1 + 2;
+	//dest2 = src2 + 2;
 
-	n = 5;
-	printf("%s    %s    %ld\n\n", dest1, src1, n);
+	n = 3;
+	printf("%s    %s    %ld\n", dest1, src1, n);
+	printf("%p , %p -- ", &dest1, &src1);
 	memmove(dest1, src1, n);
+	//ft_memmove(dest2, src2, n);
 	printf("%s    %s-\n", dest1, src1);
-
-	ft_memmove(dest2, src2, n);
-	printf("%s    %s-\n", dest2, src2);
+	//printf("%s    %s-\n", dest2, src2);
 	
 	return (0);
 }

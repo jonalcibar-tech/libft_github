@@ -6,65 +6,75 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 11:36:29 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/04 13:05:12 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/06/07 11:03:07 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
 #include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	const char		*s;
-	unsigned char	*d;
-	size_t			i;
+    unsigned char	*s;
+    unsigned char	*d;
+    size_t			i;
 
-	s = (const char *) src;
-	d = (unsigned char *) dest;
-
-
-	if (dest == NULL && src == NULL)
-		return (NULL);
-	if (&dest >= &src)
-	{
-		printf("patras\n");
-		i = n;
-		while (i-- > 0)
-			d[i] = s[i];
-	}
-	else
-	{
-		printf("palante\n");
-		i = -1;
-		while (i++ < n)
-			d[i] = s[i];
-	}
-	return (dest);
+    if (dest == NULL && src == NULL)
+        return (NULL);
+    s = (unsigned char *) src;
+    d = (unsigned char *) dest;
+    if (dest >= src)
+    {
+        i = n;
+        while (i > 0)
+        {
+          d[i - 1] = s[i - 1];
+          i--;
+        }
+    }
+    else
+    {
+        i = 0;
+        while (i < n)
+        {
+          d[i] = s[i];
+          i++;
+        }
+    }
+    return (dest);
 }
 
 #include <stdio.h>
 #include <string.h>
 int main(void)
 {
-	char		src1[]  = "abcde";
-	char		*dest1;
-	size_t		n;
-	//char		src2[]  = "abcde";
-	//char		*dest2;
-	
-	dest1 = src1 + 2;
-	//dest2 = src2 + 2;
+char str1[] = "Hola mundo";
+char str2[] = "Hola mundo";
+char str3[] = "Hola mundo";
 
-	n = 3;
-	printf("%s    %s    %ld\n", dest1, src1, n);
-	printf("%p , %p -- ", &dest1, &src1);
-	memmove(dest1, src1, n);
-	//ft_memmove(dest2, src2, n);
-	printf("%s    %s-\n", dest1, src1);
-	//printf("%s    %s-\n", dest2, src2);
-	
-	return (0);
+printf("Comparación con memmove estándar:\n");
+memmove(str1 + 5, str1, 5);
+str1[10] = '\0';
+printf("str1 (memmove): %s\n", str1);
+
+printf("Antes ft_memmove (sin overlap):\n");
+printf("str2: %s\n", str2);
+
+ft_memmove(str2 + 5, str2, 5);
+str2[10] = '\0';
+
+printf("Después ft_memmove (con overlap):\n");
+printf("str2: %s\n\n", str2);
+
+
+printf("\nCaso simple sin overlap:\n");
+ft_memmove(str3, "ABCDE", 5);
+str3[5] = '\0';
+printf("str3: %s\n", str3);
+
+return (0);
 }
-
+*/
 /*
 #include <string.h>
 void *memmove(void *dest, const void *src, size_t n);

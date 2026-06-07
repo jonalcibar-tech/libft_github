@@ -6,25 +6,13 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 16:17:08 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/20 14:45:05 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/27 15:25:49 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //test2 keiner
 #include	<stddef.h>
-
-size_t	ft_strlen (const char *str)
-{	
-	int		count;
-
-	count = 0;
-	while (str[count] != '\0')
-	{
-		count++;
-	}
-	return (count);
-}
-
+#include "ft_strlen.c"
 #include	<stdio.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)

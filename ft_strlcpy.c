@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:51:42 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/07 13:32:52 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/06/07 14:00:55 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,17 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 
 int	main(void)
 {
-	const char	src_string[] = "hello";
-	char		dst_string[] = "goodbye";
+	const char	src1[] = "HOLA MUNDO";
+	char		dst1[] = "";
+	const char	src2[] = "HOLA MUNDO";
+	char		dst2[] = "";
+	size_t		n;
 
-	printf("%p   %s\n", &src_string, src_string);
-	printf("%p   %s\n", &dst_string, dst_string);
-	printf("%lu\n", ft_strlcpy(dst_string, src_string, 5));
-	printf("%p   %s\n", &src_string, src_string);
-	printf("%p   %s\n", &dst_string, dst_string);
-	return 0;
+	n = 5;
+	printf("%s - %s %zu\n", dst1, src1, n);
+	printf("%zu ", ft_strlcpy(dst1, src1, n));
+	printf("%zu ", ft_strlcpy(dst2, src2, n));
+	return (0);
 }
 
 /*

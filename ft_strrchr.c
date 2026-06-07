@@ -6,23 +6,12 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 12:20:27 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/11 12:46:56 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/29 13:42:53 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-int ft_strlen(char *str)
-{
-	int count;
+#include "libft.h"
 
-	count = 0;
-	while (str[count] != '\0')
-	{
-		count++;
-	}
-	return (count);
-}
-*/
 char	*ft_strrchr(const char *s, int c)
 {
 	int		len_s;

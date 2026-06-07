@@ -6,23 +6,12 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 10:16:25 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/11 12:00:58 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/29 13:42:29 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-int ft_strlen(char *str)
-{
-	int count;
+#include "libft.h"
 
-	count = 0;
-	while (str[count] != '\0')
-	{
-		count++;
-	}
-	return (count);
-}
-*/
 char	*ft_strchr(const char *s, int c)
 {
 	int		len_s;
@@ -40,6 +29,8 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return ('\0');
 }
+
+
 /*
 #include <stdio.h>
 #include <string.h>

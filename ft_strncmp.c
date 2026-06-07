@@ -6,23 +6,14 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 13:07:19 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/15 10:35:35 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/27 15:41:59 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-int	ft_strlen(const char *str)
-{
-	int	count;
 
-	count = 0;
-	while (str[count] != '\0')
-	{
-		count++;
-	}
-	return (count);
-}
-*/
+#include "libft.h"
+
+/*
 #include <stddef.h>
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
@@ -42,6 +33,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	return (0);
 }
+	*/
+
 /*
 #include <stdio.h>
 #include <string.h>

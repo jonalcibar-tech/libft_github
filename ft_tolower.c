@@ -10,6 +10,9 @@ int ft_tolower(int c)
 	}
 }
 
+
+
+/*
 #include <ctype.h>
 #include <stdio.h>
 
@@ -28,6 +31,7 @@ int main()
 	}
 	return 0;
 }
+	*/
 /*
 int tolower_l(int c, locale_t locale);
 If  c is an uppercase letter, tolower() returns its lowercase equivalent, if a lowercase representation exists

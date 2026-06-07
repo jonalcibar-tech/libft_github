@@ -6,24 +6,15 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 16:17:08 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/20 15:44:48 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/27 15:15:23 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t ft_strlen(const char *str)
-{
-	int count;
-
-	count = 0;
-	while (str[count] != '\0')
-	{
-		count++;
-	}
-	return (count);
-}
+/*
+#include <stddef.h>
 #include <stdio.h>
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size);
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 	
@@ -58,6 +49,9 @@ int	main(void)
 	}
 	return (0);
 }
+
+
+*/
 /*
 size_t strlcat(char *dst, const char *src, size_t size);
 

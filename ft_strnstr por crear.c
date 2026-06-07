@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr por crear.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/20 09:18:48 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/20 10:35:15 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/27 15:20:19 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 /*
 ¿¡OJO AL COPILAR CON EL -lbsd?
 */
+
+/*
 #include	<bsd/string.h>
 #include	<stddef.h>
 #include	<stdio.h>
@@ -30,7 +32,7 @@ int	main (void)
 
 	return (0);
 }
-
+*/
 
 /*
 strnstr — locate a substring in a string

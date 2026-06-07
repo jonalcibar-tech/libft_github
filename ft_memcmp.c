@@ -6,11 +6,11 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 15:32:17 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/20 09:09:28 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/05/27 15:18:50 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stddef.h>
+#include <stddef.h>
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:51:42 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/08 15:50:58 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/06/08 17:14:16 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,22 @@
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	count;
+	size_t	dst_len;
+	size_t	src_len;
 
-	count = 0;
-	if (size != 0)
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+
+	if (size == 0)
+		return (src_len);
+	if ((src_len + 1) < size) //+1 para que haya sitio para \0 final
+		ft_memcpy(dst, src, size + 1);
+	else 
 	{
-		while ((count <= size - 1) && (((const char *) src)[count] != '\0'))
-		{
-			((char *) dst) [count] = ((const char*) src) [count];
-			count ++;
-		}
-		((char *) dst) [count] = '\0';
+		ft_memcpy(dst, src, dst_len - 1);
+		dst[dst_len+1] = '\0';
 	}
-	return (src);
+	return (src_len);
 }
 #include <stdio.h>
 #include <bsd/string.h>
@@ -48,7 +52,7 @@ int	main(void)
 }
 
 /*
-strlcpy(char *dst, const char *src, size_t size);
+size_t strlcpy(char *dst, const char *src, size_t size);
 
 The strlcpy() function copies up to size - 1 characters from the NUL-terminated
 string src to dst, NUL-terminating the result.

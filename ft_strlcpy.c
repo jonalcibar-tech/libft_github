@@ -6,11 +6,12 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:51:42 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/07 14:00:55 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/06/08 15:50:58 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
@@ -26,23 +27,23 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		}
 		((char *) dst) [count] = '\0';
 	}
-	return (*src);
+	return (src);
 }
 #include <stdio.h>
 #include <bsd/string.h>
 
 int	main(void)
 {
-	const char	src1[] = "HOLA MUNDO";
+	const char	src1[] = "H";
 	char		dst1[] = "";
-	const char	src2[] = "HOLA MUNDO";
+	const char	src2[] = "H";
 	char		dst2[] = "";
 	size_t		n;
 
 	n = 5;
 	printf("%s - %s %zu\n", dst1, src1, n);
-	printf("%zu ", ft_strlcpy(dst1, src1, n));
-	printf("%zu ", ft_strlcpy(dst2, src2, n));
+	printf("%zu %s\n", ft_strlcpy(dst1, src1, n), dst1);
+	printf("%zu %s\n", ft_strlcpy(dst2, src2, n), dst2);
 	return (0);
 }
 

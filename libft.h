@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/20 10:53:10 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/07 10:54:46 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/06/07 14:30:57 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include 	<unistd.h>
 #include 	<stddef.h>
 #include	<stdio.h>
+#include	<bsd/string.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 11:36:29 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/09 13:08:08 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/06/09 15:37:25 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,20 @@
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t	c;
-	char 	*dest_tmp;
 	char	*src_tmp;
+	char	*dest_tmp;
 
-	dest_tmp = (char *)dest;
-	src_tmp = (char *)src;
-
-	if (dest_tmp == NULL && src_tmp == NULL)
+	if (dest == NULL && src == NULL)
 		return (dest);
+
+	dest_tmp = (char *) dest;// so if orig. values overlap values are not altered
+	src_tmp = (char *) src;
 	c = 0;
-	dest_tmp =  (char *) dest;// so if orig. values overlap values are not altered
-	src_tmp =  (char *) src;
-	if (dest > src) 
-		while (n -- > 0) //iterate backward
+	if (dest > src)
+		while (n-- > 0) //iterate backward
 			dest_tmp[n] = src_tmp[n];
 	else 
-		while (c++ < n) //iterate foward
+		while (c++ < n+1) //iterate foward
 			dest_tmp[c] = src_tmp[c];	
 	return (dest);
 }

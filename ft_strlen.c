@@ -6,18 +6,18 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 17:11:48 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/08 18:25:16 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/06/09 08:49:34 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(const char *s)
 {
 	size_t	count;
 
 	count = 0;
-	while (str[count] != '\0')
+	while (s[count] != '\0')
 	{
 		count++;
 	}

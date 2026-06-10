@@ -6,13 +6,12 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 11:36:29 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/09 15:37:25 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/06/10 11:35:29 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
-#include <stddef.h>
+//#include <stddef.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -22,19 +21,25 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	if (dest == NULL && src == NULL)
 		return (dest);
-
-	dest_tmp = (char *) dest;// so if orig. values overlap values are not altered
+	dest_tmp = (char *) dest;
 	src_tmp = (char *) src;
-	c = 0;
 	if (dest > src)
-		while (n-- > 0) //iterate backward
+	{
+		while (n-- > 0)
 			dest_tmp[n] = src_tmp[n];
-	else 
-		while (c++ < n+1) //iterate foward
-			dest_tmp[c] = src_tmp[c];	
+	}
+	else
+	{
+		c = 0;
+		while (c < n)
+		{
+			dest_tmp[c] = src_tmp[c];
+			c++;
+		}
+	}
 	return (dest);
 }
-
+/*
 #include <stdio.h>
 #include <string.h>
 int main(void)
@@ -64,7 +69,7 @@ printf("str3: %s\n", str3);
 
 return (0);
 }
-
+*/
 /*
 #include <string.h>
 void *memmove(void *dest, const void *src, size_t n);

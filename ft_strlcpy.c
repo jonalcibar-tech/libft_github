@@ -6,11 +6,11 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:51:42 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/10 13:29:03 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/06/10 14:52:19 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
+#include "libft.h"
 #include <stddef.h>
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
@@ -45,7 +45,7 @@ int	main(void)
 
 	n = 5;
 	printf("%s - %s %zu\n", dst1, src1, n);
-	//printf("%zu %s\n", strlcpy(dst1, src1, n), dst1);
+	printf("%zu %s\n", strlcpy(dst1, src1, n), dst1);
 	printf("%zu %s\n", ft_strlcpy(dst2, src2, n), dst2);
 	return (0);
 }

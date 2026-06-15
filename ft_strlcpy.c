@@ -5,103 +5,54 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/15 09:41:44 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/15 13:28:42 by jalcibar         ###   ########.fr       */
+/*   Created: 2026/06/15 16:08:18 by jalcibar          #+#    #+#             */
+/*   Updated: 2026/06/15 16:25:12 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
+	size_t	src_len;
+
+	src_len = ft_strlen(src);
 	if (size == 0)
-		return (0);
-	if ((ft_strlen(src) + 1) <= size)
-	{
-		ft_memcpy(dst, src, ft_strlen(src)-1);
-		dst[ft_strlen(src)] = '\0';
-	}
+		return (src_len);
+	if (src_len + 1 < size)
+		ft_memcpy(dst, src, src_len + 1);
 	else
 	{
 		ft_memcpy(dst, src, size - 1);
-		dst[size] = '\0';
+		dst[size - 1] = '\0';
 	}
-	return (ft_strlen(src));
+	return (src_len);
 }
+/*
+#include <stdio.h>
+#include <bsd/string.h>
 
-void	ft_print_result(int n)
+int	main(void)
 {
-	char c;
+	const char	src1[] = "HOLA MUNDO";
+	char		dst1[5];
+	const char	src2[] = "HOLA MUNDO";
+	char		dst2[5];
+	size_t		n;
 
-	if (n >= 10)
-		ft_print_result(n / 10);
-	c = n % 10 + '0';
-	write (1, &c, 1);
-}
-int		main(void)
-{
-	char	*dest;
-	
-	dest = (char *)malloc(sizeof(*dest) * 15);
-
-	memset(dest, 0, 15);
-	memset(dest, 'r', 6);
-	
-		ft_print_result(ft_strlcpy(dest, "lorem", 15));
-		write(1, " - ", 3);
-		write(1, dest, 15);
-		write(1, "\n", 1);
-		ft_print_result(strlcpy(dest, "lorem", 15)); 
-		write(1, " - ", 3);
-		write(1, dest, 15);
-		write(1, "\n\n", 2);
-
-		//ft_print_result(ft_strlcpy(dest, "", 15));
-		write(1, " - ", 3);
-		write(1, dest, 15);
-		write(1, "\n", 1);
-		ft_print_result(strlcpy(dest, "", 15));
-		write(1, " - ", 3);
-		write(1, dest, 15);
-		write(1, "\n\n", 2);
-		write(1, "\n", 1);
-		
-		ft_print_result(ft_strlcpy(dest, "lorem ipsum", 3));
-		write(1, " - ", 3);
-		write(1, dest, 15);
-		write(1, "\n", 1);
-		ft_print_result(strlcpy(dest, "lorem ipsum", 3)); 
-		write(1, " - ", 3);
-		write(1, dest, 15);
-		write(1, "\n\n", 2);
-
-		ft_print_result(ft_strlcpy(dest, "lorem ipsum dolor sit amet", 15));
-		write(1, " - ", 3);
-		write(1, dest, 15);
-		write(1, "\n", 1);
-		ft_print_result(strlcpy(dest, "lorem ipsum dolor sit amet", 15)); 
-		write(1, " - ", 3);
-		write(1, dest, 15);
-		write(1, "\n\n", 2);
-
-		ft_print_result(ft_strlcpy(dest, "lorem ipsum dolor sit amet", 15));
-		write(1, " - ", 3);
-		write(1, dest, 15);
-		write(1, "\n", 1);
-		ft_print_result(strlcpy(dest, "lorem ipsum dolor sit amet", 0)); 
-		write(1, " - ", 3);
-		write(1, dest, 15);
-		write(1, "\n\n", 2);
+	n = 5;
+	printf("%s - %s %zu\n", dst1, src1, n);
+	printf("%zu %s-\n", strlcpy(dst1, src1, n), dst1);
+	printf("%zu %s-\n", ft_strlcpy(dst2, src2, n), dst2);
 	return (0);
 }
-
+*/
 /*
-strlcpy(char *dst, const char *src, size_t size);
+size_t strlcpy(char *dst, const char *src, size_t size);
+
 The strlcpy() function copies up to size - 1 characters from the NUL-terminated
 string src to dst, NUL-terminating the result.
+
 The strlcpy() function returns the total length of the string it tried to 
 create. For strlcpy() that means the length of src.
 */

@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:51:42 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/12 11:47:13 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/06/15 16:21:12 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 
 int	main(void)
 {
-	const char	src1[] = "HOLA";
+	const char	src1[] = "HOLA MUNDO";
 	char		dst1[5];
-	const char	src2[] = "HOLA";
+	const char	src2[] = "HOLA MUNDO";
 	char		dst2[5];
 	size_t		n;
 

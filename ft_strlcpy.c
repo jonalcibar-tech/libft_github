@@ -5,83 +5,103 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/28 10:51:42 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/12 13:47:19 by jalcibar         ###   ########.fr       */
+/*   Created: 2026/06/15 09:41:44 by jalcibar          #+#    #+#             */
+/*   Updated: 2026/06/15 13:28:42 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t	count;
-
-	count = 0;
-	if (size != 0)
+	if (size == 0)
+		return (0);
+	if ((ft_strlen(src) + 1) <= size)
 	{
-		while (count < size - 1)
-		{
-			((char *)dst)[count] = ((const char *)src)[count];
-			count ++;
-		}
-		((char *)dst)[count] = '\0';
+		ft_memcpy(dst, src, ft_strlen(src)-1);
+		dst[ft_strlen(src)] = '\0';
+	}
+	else
+	{
+		ft_memcpy(dst, src, size - 1);
+		dst[size] = '\0';
 	}
 	return (ft_strlen(src));
 }
 
-#include <stdio.h>
-#include <bsd/string.h>
-
-int	main(void)
+void	ft_print_result(int n)
 {
-char str1[] = "lorem";
-char str2[] = "lorem";
-char str3[] = "lorem";
+	char c;
 
-printf("Comparación con strlcpy estándar:\n");
-printf("%zu - ", strlcpy(str1 + 5, str1, 15));
-str1[15] = '\0';
-printf("str1 (strlcpy): %s\n", str1);
-
-printf("Antes ft_strlcpy (sin overlap):\n");
-printf("str2: %s\n", str2);
-
-printf("%zu - ", strlcpy(str2 + 5, str2, 15));
-str2[15] = '\0';
-
-printf("Después ft_strlcpy (con overlap):\n");
-printf("str2: %s\n\n", str2);
-
-
-printf("%zu - ", strlcpy(str3 + 5, str3, 15));
-ft_strlcpy(str3, "ABCDE", 15);
-str3[5] = '\0';
-printf("str3: %s\n", str3);
-
-return (0);
+	if (n >= 10)
+		ft_print_result(n / 10);
+	c = n % 10 + '0';
+	write (1, &c, 1);
 }
-/*
+int		main(void)
 {
-	const char	src1[] = "lorem";
-	char		dst1[15];
-	const char	src2[] = "lorem";
-	char		dst2[15];
-	size_t		n;
+	char	*dest;
+	
+	dest = (char *)malloc(sizeof(*dest) * 15);
 
-	n = 15;
-	printf("%s - %s %zu\n", dst1, src1, n);
-	printf("%zu -%s-\n", strlcpy(dst1, src1, n), dst1);
-	printf("%zu -%s-\n", ft_strlcpy(dst2, src2, n), dst2);
+	memset(dest, 0, 15);
+	memset(dest, 'r', 6);
+	
+		ft_print_result(ft_strlcpy(dest, "lorem", 15));
+		write(1, " - ", 3);
+		write(1, dest, 15);
+		write(1, "\n", 1);
+		ft_print_result(strlcpy(dest, "lorem", 15)); 
+		write(1, " - ", 3);
+		write(1, dest, 15);
+		write(1, "\n\n", 2);
+
+		//ft_print_result(ft_strlcpy(dest, "", 15));
+		write(1, " - ", 3);
+		write(1, dest, 15);
+		write(1, "\n", 1);
+		ft_print_result(strlcpy(dest, "", 15));
+		write(1, " - ", 3);
+		write(1, dest, 15);
+		write(1, "\n\n", 2);
+		write(1, "\n", 1);
+		
+		ft_print_result(ft_strlcpy(dest, "lorem ipsum", 3));
+		write(1, " - ", 3);
+		write(1, dest, 15);
+		write(1, "\n", 1);
+		ft_print_result(strlcpy(dest, "lorem ipsum", 3)); 
+		write(1, " - ", 3);
+		write(1, dest, 15);
+		write(1, "\n\n", 2);
+
+		ft_print_result(ft_strlcpy(dest, "lorem ipsum dolor sit amet", 15));
+		write(1, " - ", 3);
+		write(1, dest, 15);
+		write(1, "\n", 1);
+		ft_print_result(strlcpy(dest, "lorem ipsum dolor sit amet", 15)); 
+		write(1, " - ", 3);
+		write(1, dest, 15);
+		write(1, "\n\n", 2);
+
+		ft_print_result(ft_strlcpy(dest, "lorem ipsum dolor sit amet", 15));
+		write(1, " - ", 3);
+		write(1, dest, 15);
+		write(1, "\n", 1);
+		ft_print_result(strlcpy(dest, "lorem ipsum dolor sit amet", 0)); 
+		write(1, " - ", 3);
+		write(1, dest, 15);
+		write(1, "\n\n", 2);
 	return (0);
 }
-*/
+
 /*
 strlcpy(char *dst, const char *src, size_t size);
-
 The strlcpy() function copies up to size - 1 characters from the NUL-terminated
 string src to dst, NUL-terminating the result.
-
 The strlcpy() function returns the total length of the string it tried to 
 create. For strlcpy() that means the length of src.
 */

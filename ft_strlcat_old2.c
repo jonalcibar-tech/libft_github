@@ -5,50 +5,55 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/15 16:08:18 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/17 16:15:11 by jalcibar         ###   ########.fr       */
+/*   Created: 2026/04/28 16:17:08 by jalcibar          #+#    #+#             */
+/*   Updated: 2026/05/27 15:15:23 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+/*
+#include <stddef.h>
+#include <stdio.h>
 
-size_t    ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-    size_t    dst_len;
-    size_t    src_len;
+	size_t	i;
+	
+	i = 0;
+	while (i < size)
+	{
 
-    dst_len = ft_strlen(dst);
-    src_len = ft_strlen(src);
-    if (size == 0 || src == NULL)
-        return (dst_len);
-    if (src_len <= size-1)
-        ft_memcpy(dst + dst_len, src, size - src_len + 1);
-    else
-    {
-        ft_memcpy(dst + dst_len, src, size - 1);
-        dst[size] = '\0';
-    }
-    return (dst_len + src_len);
+	}
 }
 
-#include <stdio.h>
-#include <bsd/string.h>
-
+#include	<stdio.h>
+#include	<bsd/string.h>
 int	main(void)
 {
-	char		dst[11] = "HOLA";
-	const char	src[] = " MUNDO";
-	size_t		n;
+	const char	src_string[] = "source";
+	char		temp_dest_string[] = "dest";
+	char		dst_string[20] = "";		
+	size_t		contar;
 
-	n = 3;
-	//printf("%s - %s %zu\n", dst, src, n);
-	printf("%zu %s-\n", ft_strlcat(dst, src, n), dst);
-	//printf("%zu %s-\n", ft_strlcat(dst, src, n), dst);
+	
+	printf("%s\n", src_string);
+	printf("%s\n", temp_dest_string);
+
+	contar = 0;
+	while (contar <= 20)
+	{
+		strcpy(dst_string, temp_dest_string);
+		printf("%zu %zu %s-\n", contar, strlcat(dst_string, src_string, contar), dst_string);
+		strcpy(dst_string, temp_dest_string);
+		//printf("%zu %zu %s-\n\n", contar, ft_strlcat(dst_string, src_string, contar), dst_string);
+		contar++;
+	}
 	return (0);
 }
 
+
+*/
 /*
-strlcat(char *dst, const char *src, size_t size);
+size_t strlcat(char *dst, const char *src, size_t size);
 
 The strlcat() function appends the NUL-terminated string src to the end
 of dst.  It will append at most size - strlen(dst) - 1 bytes, NUL-termi‐

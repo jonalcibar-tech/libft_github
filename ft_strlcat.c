@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 16:08:18 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/19 13:52:44 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/06/19 13:58:57 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ size_t    ft_strlcat(char *dst, const char *src, size_t size)
 	*/
     return (dst_len + src_len);
 }
-/*
+
 #include <stdio.h>
 #include <bsd/string.h>
 
@@ -47,11 +47,11 @@ int	main(void)
 
 	n = 3;
 	//printf("%s - %s %zu\n", dst, src, n);
-	printf("%zu %s-\n", ft_strlcat(dst, src, n), dst);
-	//printf("%zu %s-\n", strlcat(dst, src, n), dst);
+	//printf("%zu %s-\n", ft_strlcat(dst, src, n), dst);
+	printf("%zu %s-\n", strlcat(dst, src, n), dst);
 	return (0);
 }
-*/
+
 /*
 strlcat(char *dst, const char *src, size_t size);
 

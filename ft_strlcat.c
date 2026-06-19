@@ -6,10 +6,11 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 16:08:18 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/17 16:15:11 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/06/19 12:34:34 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// NO FUNCIONA BIEN
 #include "libft.h"
 
 size_t    ft_strlcat(char *dst, const char *src, size_t size)
@@ -19,8 +20,8 @@ size_t    ft_strlcat(char *dst, const char *src, size_t size)
 
     dst_len = ft_strlen(dst);
     src_len = ft_strlen(src);
-    if (size == 0 || src == NULL)
-        return (dst_len);
+    if (size == 0 || src == NULL || size == dst_len)
+        return (dst_len + src_len);
     if (src_len <= size-1)
         ft_memcpy(dst + dst_len, src, size - src_len + 1);
     else
@@ -42,8 +43,8 @@ int	main(void)
 
 	n = 3;
 	//printf("%s - %s %zu\n", dst, src, n);
-	printf("%zu %s-\n", ft_strlcat(dst, src, n), dst);
 	//printf("%zu %s-\n", ft_strlcat(dst, src, n), dst);
+	printf("%zu %s-\n", strlcat(dst, src, n), dst);
 	return (0);
 }
 

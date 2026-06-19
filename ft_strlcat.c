@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 16:08:18 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/19 13:31:51 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/06/19 13:52:44 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,12 @@ size_t    ft_strlcat(char *dst, const char *src, size_t size)
 		ft_memcpy(dst + dst_len, src, size - dst_len);
 		dst[size - 1] = '\0';
 	}
-    else
+    /*
+	else
     {
-        ft_memcpy(dst + dst_len, src, size - 1);
         dst[size] = '\0';
     }
+	*/
     return (dst_len + src_len);
 }
 /*
@@ -41,10 +42,10 @@ size_t    ft_strlcat(char *dst, const char *src, size_t size)
 int	main(void)
 {
 	char		dst[11] = "HOLA";
-	const char	src[] = "";
+	const char	src[] = " MUNDO";
 	size_t		n;
 
-	n = 11;
+	n = 3;
 	//printf("%s - %s %zu\n", dst, src, n);
 	printf("%zu %s-\n", ft_strlcat(dst, src, n), dst);
 	//printf("%zu %s-\n", strlcat(dst, src, n), dst);

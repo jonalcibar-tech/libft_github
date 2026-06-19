@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 16:08:18 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/19 12:34:34 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/06/19 13:31:51 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,11 @@ size_t    ft_strlcat(char *dst, const char *src, size_t size)
     src_len = ft_strlen(src);
     if (size == 0 || src == NULL || size == dst_len)
         return (dst_len + src_len);
-    if (src_len <= size-1)
-        ft_memcpy(dst + dst_len, src, size - src_len + 1);
+    if (dst_len < size-1)
+    {
+		ft_memcpy(dst + dst_len, src, size - dst_len);
+		dst[size - 1] = '\0';
+	}
     else
     {
         ft_memcpy(dst + dst_len, src, size - 1);
@@ -31,23 +34,23 @@ size_t    ft_strlcat(char *dst, const char *src, size_t size)
     }
     return (dst_len + src_len);
 }
-
+/*
 #include <stdio.h>
 #include <bsd/string.h>
 
 int	main(void)
 {
 	char		dst[11] = "HOLA";
-	const char	src[] = " MUNDO";
+	const char	src[] = "";
 	size_t		n;
 
-	n = 3;
+	n = 11;
 	//printf("%s - %s %zu\n", dst, src, n);
-	//printf("%zu %s-\n", ft_strlcat(dst, src, n), dst);
-	printf("%zu %s-\n", strlcat(dst, src, n), dst);
+	printf("%zu %s-\n", ft_strlcat(dst, src, n), dst);
+	//printf("%zu %s-\n", strlcat(dst, src, n), dst);
 	return (0);
 }
-
+*/
 /*
 strlcat(char *dst, const char *src, size_t size);
 

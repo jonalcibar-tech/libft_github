@@ -6,52 +6,53 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 16:08:18 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/19 13:58:57 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/06/19 16:27:12 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // NO FUNCIONA BIEN
 #include "libft.h"
+#include "stdio.h"
 
-size_t    ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-    size_t    dst_len;
-    size_t    src_len;
+	size_t	dst_len;
+	size_t	src_len;
 
-    dst_len = ft_strlen(dst);
-    src_len = ft_strlen(src);
-    if (size == 0 || src == NULL || size == dst_len)
-        return (dst_len + src_len);
-    if (dst_len < size-1)
-    {
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	if (src == NULL || size == dst_len)
+		return (dst_len + src_len);
+	if (dst_len < size - 1)
+	{
 		ft_memcpy(dst + dst_len, src, size - dst_len);
 		dst[size - 1] = '\0';
 	}
-    /*
 	else
-    {
-        dst[size] = '\0';
-    }
-	*/
-    return (dst_len + src_len);
+	{
+		dst[size + 1] = '\0';
+		return (size + src_len);
+	}
+	return (dst_len + src_len);
 }
-
+/*
 #include <stdio.h>
 #include <bsd/string.h>
 
 int	main(void)
 {
-	char		dst[11] = "HOLA";
+	char		dst[11] = "";
 	const char	src[] = " MUNDO";
+	
 	size_t		n;
 
-	n = 3;
+	n = 5;
 	//printf("%s - %s %zu\n", dst, src, n);
 	//printf("%zu %s-\n", ft_strlcat(dst, src, n), dst);
 	printf("%zu %s-\n", strlcat(dst, src, n), dst);
 	return (0);
 }
-
+*/
 /*
 strlcat(char *dst, const char *src, size_t size);
 

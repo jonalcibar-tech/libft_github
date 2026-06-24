@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 16:08:18 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/24 13:12:22 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/06/24 16:40:07 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,32 +20,35 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 
 	dst_len = ft_strlen(dest);
 	src_len = ft_strlen(src);
-	
-	printf("dst_len:%zu\n",dst_len);
-	printf("src_len:%zu\n",src_len);	
 	if (src == NULL || size == dst_len || size == 0)
 		return (dst_len + src_len);
-	if (dst_len <=(size - 1))
-	{
-		ft_memcpy(dest + dst_len, src, size - dst_len);
-		dest[size - 1] = '\0';
+	if (dst_len + src_len < size- 1)
+	{	
+		ft_memcpy(dest + dst_len, src, dst_len + src_len);
+		dest[dst_len + src_len] = '\0';
 	}
-	else
+	else if (dst_len + src_len - 1 >= dst_len + size - 1)
 	{
-		return (size + src_len);
+		ft_memcpy(dest + dst_len, src, size - dst_len - 1);
+		dest[size] = '\0';
 	}
-	return (dst_len + src_len);
+		
+return(dst_len + src_len);
 }
+
 /*
+printf("dst_len:%zu\n", dst_len);
+printf("src_len:%zu\n", src_len);
+
 #include <stdio.h>
 
 int	main(void)
 {
 
 	//char		dst[15] = "rrrrrrrrrrrrrr";
-	//onst char	src[] = "lorem ipsum dolor sit amet";
-	char		dst[11] = " HOLA";
-	const char	src[] = "MUNDO";
+	//const char	src[] = "lorem ipsum dolor sit amet";
+	char		dst[11] = "HOLA";
+	const char	src[] = " MUNDO";
 	size_t		n;
 
 	n = 15;

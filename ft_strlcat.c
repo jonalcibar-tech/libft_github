@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 16:08:18 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/24 16:40:07 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/06/24 16:53:15 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	src_len = ft_strlen(src);
 	if (src == NULL || size == dst_len || size == 0)
 		return (dst_len + src_len);
-	if (dst_len + src_len < size- 1)
+	if (dst_len + src_len <= size- 1)
 	{	
 		ft_memcpy(dest + dst_len, src, dst_len + src_len);
 		dest[dst_len + src_len] = '\0';
 	}
-	else if (dst_len + src_len - 1 >= dst_len + size - 1)
+	else if (dst_len + src_len - 1 >= dst_len + size)
 	{
-		ft_memcpy(dest + dst_len, src, size - dst_len - 1);
+		ft_memcpy(dest + dst_len - 1, src, size - dst_len - 1);
 		dest[size] = '\0';
 	}
 		

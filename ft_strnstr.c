@@ -6,15 +6,10 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 12:03:59 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/06/10 12:04:05 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/07/01 17:20:16 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-¿¡OJO AL COPILAR CON EL -lbsd?
-*/
-
-/*
 #include	<bsd/string.h>
 #include	<stddef.h>
 #include	<stdio.h>
@@ -31,7 +26,6 @@ int	main (void)
 
 	return (0);
 }
-*/
 
 /*
 strnstr — locate a substring in a string

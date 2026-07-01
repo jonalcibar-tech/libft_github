@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 12:20:27 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/29 13:42:53 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/07/01 14:37:10 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,16 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int		len_s;
 	int		count;
-	char	charc;
 
-	charc = (char)c;
-	len_s = ft_strlen((char *)s);
-	count = len_s;
-	while (count > 0)
+	count = ft_strlen(s);
+	while (count >= 0)
 	{
-		if (charc == s[count])
+		if (s[count] == (char)c)
 			return ((char *)&s[count]);
 		count--;
 	}
-	return ('\0');
+	return (NULL);
 }
 /*
 #include <stdio.h>
@@ -35,13 +31,13 @@ char	*ft_strrchr(const char *s, int c)
 
 int main(void)
 {
-	const char string[] = "This is a test";
+	const char string[] = "bonjour";
 	int c;
 	
-	c = 's';
+	c = '\0';
 	printf("%s\n", string);
-	printf("%c %p\n", c, strrchr(string, c));
-	printf("%c %p\n", c, ft_strrchr(string, c));
+	printf("%c %c\n", c, *strrchr(string, c));
+	printf("%c %c\n", c, *ft_strrchr(string, c));
 	return (0);
 }
 */

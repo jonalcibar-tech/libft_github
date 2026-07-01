@@ -6,11 +6,11 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 15:32:17 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/20 09:09:28 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/07/01 16:04:37 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stddef.h>
+#include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
@@ -43,11 +43,11 @@ int	main(void)
 
 	n = 8;
 	printf("%s %s %ld-\n", s1, s2, n);
-	printf("%d-\n", memcmp(s1, s2, n));
+	//printf("%d-\n", memcmp(s1, s2, n));
 	printf("%d-\n", ft_memcmp(s1, s2, n));
 	return (0);
 }
-*/	
+*/
 /*
 memcmp - compare memory areas
 #include <string.h>

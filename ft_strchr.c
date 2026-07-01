@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 10:16:25 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/29 13:42:29 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/07/01 09:24:51 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,8 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *)&s[count]);
 		count++;
 	}
-	return ('\0');
+	return (NULL);
 }
-
-
 /*
 #include <stdio.h>
 #include <string.h>

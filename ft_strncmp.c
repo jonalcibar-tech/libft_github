@@ -6,38 +6,22 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 13:07:19 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/15 10:35:35 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/07/01 16:03:07 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-int	ft_strlen(const char *str)
-{
-	int	count;
-
-	count = 0;
-	while (str[count] != '\0')
-	{
-		count++;
-	}
-	return (count);
-}
-*/
-#include <stddef.h>
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	count;
-	int	len_s1;
-	int	len_s2;
+	size_t	count;
 
-	len_s1 = ft_strlen(s1);
-	len_s2 = ft_strlen(s2);
 	count = 0;
-	while (((s1[count] != '\0') || (s2[count] != '\0')) && (count < n))
+	while (((s1[count] != '\0') || (s2[count] != '\0') || (n != 0)) &&
+			count < n)
 	{
 		if (s1[count] != s2[count])
-			return ((unsigned char)s1[count] - (unsigned char)s2 [count]);
+			return ((unsigned char)s1[count] - (unsigned char)s2[count]);
 		count ++;
 	}
 	return (0);
@@ -48,11 +32,11 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 int main(void)
 {
-	const char str1[] = "Hola";
-	const char str2[] = "Holas";
+	const char str1[] = "";
+	const char str2[] = "HOLA";
 	size_t n;
 
-	n = 5;
+	n = 0;
 	printf("%s\n%s\n", str1,str2);
 	printf("%zu %d\n", n, strncmp(str1, str2, n));
 	printf("%zu %d\n", n, ft_strncmp(str1, str2, n));

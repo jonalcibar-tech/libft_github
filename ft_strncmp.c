@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 13:07:19 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/07/01 16:03:07 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/07/02 12:49:03 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	size_t	count;
 
 	count = 0;
-	while (((s1[count] != '\0') || (s2[count] != '\0') || (n != 0)) &&
-			count < n)
+	if (!s1 && !s2)
+		return (0);
+	while (n != 0 && count < n)
 	{
-		if (s1[count] != s2[count])
+		if ((unsigned char)s1[count] != (unsigned char)s2[count])
 			return ((unsigned char)s1[count] - (unsigned char)s2[count]);
 		count ++;
 	}
@@ -32,11 +33,11 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 int main(void)
 {
-	const char str1[] = "";
-	const char str2[] = "HOLA";
+	const char str1[] = "test\200";
+	const char str2[] = "test\0";
 	size_t n;
 
-	n = 0;
+	n = 6;
 	printf("%s\n%s\n", str1,str2);
 	printf("%zu %d\n", n, strncmp(str1, str2, n));
 	printf("%zu %d\n", n, ft_strncmp(str1, str2, n));

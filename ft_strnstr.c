@@ -6,27 +6,27 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 12:03:59 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/07/01 17:20:16 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/07/02 09:53:33 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<bsd/string.h>
-#include	<stddef.h>
-#include	<stdio.h>
+/*
+#include	"libft.h"
 
 int	main (void)
 {
-	const char	big[] = "This is the big string";
-	const char	little[] = "oiawwo";
+	const char	big[] = "HOLA";
+	const char	little[] = "O";
 	size_t		n;
 
-	n = 30;
+	n = 7;
 	printf("%s\n%s\n%zu\n", big, little, n);
 	printf("%s\n", strnstr(big, little, n));
+	//printf("%s\n", ft_strnstr(big, little, n));
 
 	return (0);
 }
-
+*/
 /*
 strnstr — locate a substring in a string
 Utility functions from BSD systems (libbsd, -lbsd)

@@ -6,27 +6,44 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 12:03:59 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/07/02 09:53:33 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/07/02 17:29:15 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-#include	"libft.h"
+#include "libft.h"
+
+char *ft_strnstr(const char *big, const char *little, size_t len)
+{
+	size_t	count;
+	
+	count = 0;
+	if (little[0] == '\0')
+		return (big[0]);
+	count = 0;
+	while (ft_strlen(little) + count <= ft_strlen(big))
+	{
+		if (ft_strncmp((const char *)(*big + count), little[0], ft_strlen(little)) == 0)
+			return(big[0] + count);
+		count ++;
+	}
+	return (NULL);
+
+}
 
 int	main (void)
 {
-	const char	big[] = "HOLA";
-	const char	little[] = "O";
+	const char	*big = "HOLA MUNDO";
+	const char	*little = "LA";
 	size_t		n;
 
-	n = 7;
+	n = 4;
 	printf("%s\n%s\n%zu\n", big, little, n);
 	printf("%s\n", strnstr(big, little, n));
-	//printf("%s\n", ft_strnstr(big, little, n));
+	printf("%s\n", ft_strnstr(big, little, n));
 
 	return (0);
 }
-*/
+
 /*
 strnstr — locate a substring in a string
 Utility functions from BSD systems (libbsd, -lbsd)

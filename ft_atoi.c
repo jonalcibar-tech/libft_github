@@ -6,54 +6,65 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 18:32:27 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/07/07 18:05:53 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/07/08 12:54:00 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_power(unsigned int x, unsigned int n)
+int    ft_pow(unsigned int x, unsigned int n)
 {
 	size_t	count;
 	int		result;
 
-	count = 1;
-	result = x;
+	count = n;
+	result = 1;
 	if (n == 0 && x == 0)
 		write(1, "0 raised to 0 undetermined", 26);
-	return (-1);
-	while (count < n)
+	while (count > 0)
 	{
-		result = result * x;
-		count ++;
+		result *= x;
+		count --;
 	}
 	return (result);
 }
-
 int	ft_atoi(const char *nptr)
 {
 	size_t	count;
 	long	value;
 	int		decimal;
 	char	charact;
+	int		signrep;
 
-	count = ft_strlen(nptr);
+    if (nptr == NULL)
+      return (0);
+	count = ft_strlen(nptr) - 1;
 	value = 0;
-	decimal = 0;
-	printf("%zu", count);
-	while (nptr[count] && count > 0)
+    decimal = 0;
+	signrep = false
+	//printf("%zu ", count);
+	while (nptr[count] != '\0')
 	{
-		charact = nptr[count-1];
-		printf("\n %c ",charact);
+		charact = nptr[count];
+		//printf("character: %d\n",charact);
 		if (ft_isdigit(charact))
 		{
-			value = value + ft_power(10, decimal) * (charact >= 48 && charact <= 57);
+			value = value + ft_pow(10, decimal) * (charact - 48);
 			decimal ++;
 		}
-		else if (charact == '-')
+		else if (charact == '-' && signrep = 0)
+		{	
 			value = -value;
-		else if (charact != ' ' || charact != '+')
-			return(0);
+			signrep = 1;
+		}
+		else if (charact == '+')
+			signrep = 1;
+		else if
+		{
+			value = 0;
+		}
+		value = 0 * (signrep = 1)
+		
 		count--;
 	}
 	if (value >= 2147483648)
@@ -65,7 +76,7 @@ int	ft_atoi(const char *nptr)
 
 int	main(void)
 {
-	const char	nptr[] = "42MUNDO";
+	const char	nptr[] = "g55";
 
 	printf("%d\n", atoi(nptr));
 	printf("%d", ft_atoi(nptr));

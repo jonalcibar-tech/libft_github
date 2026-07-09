@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 18:32:27 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/07/08 18:15:26 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/07/09 18:41:47 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,17 @@ int    ft_atoi(const char *nptr)
     int		decimal;
     char	charact;
     int		signrep;
-	int		spaceflag;
 
-    if (*nptr == '\0')
+	if (*nptr == '\0')
       return (0);
     count 	= ft_strlen(nptr);
     value 	= 0;
     decimal = 0;
     signrep = 0;
-	spaceflag = 0;
     while (count >= 0)
     {
         charact = nptr[count];
-        if (ft_isdigit(charact))
+		if (ft_isdigit(charact))
         {
             value = value + ft_pow(10, decimal) * (charact - 48);
             decimal ++;
@@ -59,11 +57,11 @@ int    ft_atoi(const char *nptr)
         }
         else if (charact == '+')
             signrep++;
-		else if (charact == ' ' && !spaceflag)
-		{
+		else if (charact == ' ' && decimal)
+		{	
 			decimal = 0;
-			spaceflag = 1;
-			value = 0;
+			count--;
+			continue;
 		}
 		else
         {    

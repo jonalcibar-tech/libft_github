@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi_casi.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 18:32:27 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/07/13 17:45:30 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/07/13 12:07:35 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int    ft_atoi(const char *nptr)
     int		decimal;
     char	charact;
     int		signrep;
-	int		previsspace;
 
 	if (*nptr == '\0')
       return (0);
@@ -43,25 +42,10 @@ int    ft_atoi(const char *nptr)
     value 	= 0;
     decimal = 0;
     signrep = 0;
-	previsspace = 1;
     while (count >= 0)
     {
 		charact = nptr[count];
-		if (charact == ' ' && previsspace)
-		{
-			previsspace = 1;
-			decimal = 0;
-			count--;
-			continue;
-		}
-		else if (charact == ' ' && value)
-		{	
-			previsspace = 1;
-			decimal = 0;
-			count--;
-			continue;
-		}
-		else if (ft_isdigit(charact))
+		if (ft_isdigit(charact))
         {
             value = value + ft_pow(10, decimal) * (charact - 48);
             decimal ++;
@@ -73,12 +57,16 @@ int    ft_atoi(const char *nptr)
         }
         else if (charact == '+')
             signrep++;
-
+		else if (charact == ' ')
+		{
+			decimal = 0;
+			count--;
+			continue;
+		}
 		else
         {    
 			value = 0;
 			decimal = 0;
-			previsspace = 0;
 		}
         value = value * (signrep < 2);
         count--;

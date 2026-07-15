@@ -6,97 +6,50 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 18:32:27 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/07/13 17:45:30 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/07/15 16:59:14 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int    ft_pow(unsigned int x, unsigned int n)
-{
-	size_t	count;
-	int		result;
-
-	count = n;
-	result = 1;
-	if (n == 0 && x == 0)
-		write(1, "0 raised to 0 undetermined", 26);
-	while (count > 0)
-	{
-		result *= x;
-		count --;
-	}
-	return (result);
-}
 int    ft_atoi(const char *nptr)
 {
-    int		count;
-    long	value;
-    int		decimal;
-    char	charact;
-    int		signrep;
-	int		previsspace;
+    size_t	i;
+    long    value;
+    char    charact;
+	int		sign;
 
-	if (*nptr == '\0')
-      return (0);
-    count 	= ft_strlen(nptr);
-    value 	= 0;
-    decimal = 0;
-    signrep = 0;
-	previsspace = 1;
-    while (count >= 0)
+    i = 0;
+    value = 0;
+	sign = 1;
+    while (i <= ft_strlen(nptr) - 1)
     {
-		charact = nptr[count];
-		if (charact == ' ' && previsspace)
-		{
-			previsspace = 1;
-			decimal = 0;
-			count--;
-			continue;
-		}
-		else if (charact == ' ' && value)
-		{	
-			previsspace = 1;
-			decimal = 0;
-			count--;
-			continue;
-		}
-		else if (ft_isdigit(charact))
-        {
-            value = value + ft_pow(10, decimal) * (charact - 48);
-            decimal ++;
-        }
-        else if (charact == '-')
-        {
-            value = -value;
-            signrep++;
-        }
+        charact = nptr[i];
+        if ((charact >= 0 && charact <= 32) && charact != '\n')
+            value = 0;
+        else if (ft_isdigit(charact))
+        	value = value * 10 + (charact - 48);
         else if (charact == '+')
-            signrep++;
-
-		else
-        {    
-			value = 0;
-			decimal = 0;
-			previsspace = 0;
-		}
-        value = value * (signrep < 2);
-        count--;
-    }
+        {}
+        else if (charact == '-')
+			sign = -sign;
+		i++;
+	}
+	value = value * sign;
     if (value >= 2147483648)
-        return(2147483648-1);
+        return (2147483648 - 1);
     if (value < -2147483648)
-        return(-2147483648);
-    return value;
+        return (-2147483648);
+    return (value);
 }
 /*
-int	main(void)
+int    main(void)
 {
-	const char	nptr[] = "g55";
+    const char    nptr[] = "-4";
 
-	printf("%d\n", atoi(nptr));
-	printf("%d", ft_atoi(nptr));
-	return(0);
+    printf("%d\n", atoi(nptr));
+    printf("%d", ft_atoi(nptr));
+    return(0);
 }
 */
 /*

@@ -5,26 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/22 09:38:01 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/07/22 15:49:05 by jalcibar         ###   ########.fr       */
+/*   Created: 2026/07/24 11:35:20 by jalcibar          #+#    #+#             */
+/*   Updated: 2026/07/24 11:44:57 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_calloc (size_t nmeb, size_t size)
+void	*ft_calloc(int nmeb, int size)
 {
-str	mempoint
+	unsigned char	*mempoint;
+	int				count;
 
-if (nmeb == 0 || size == 0)
-	return malloc(1);
-*mempoint = malloc(nmeb * size);
-while mempoint
-
-
+	if (!nmeb || !size)
+		return (malloc(1));
+	mempoint = malloc(nmeb * size);
+	count = 0;
+	while (count < nmeb * size)
+		mempoint[count++] = 0;
+	return (mempoint);
 }
-
-int	main (void)
+/*
+int    main (void)
 {
-	printf("%p\n", ft_calloc(0, 0));
+    printf("%p\n", calloc(5, 3));
+    printf("%p\n", ft_calloc(5, 3));
 }
+*/

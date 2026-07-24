@@ -6,20 +6,20 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 11:35:20 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/07/24 11:44:57 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/07/24 12:12:44 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(int nmeb, int size)
+void	*ft_calloc(size_t nmeb, size_t size)
 {
 	unsigned char	*mempoint;
-	int				count;
+	size_t			count;
 
-	if (!nmeb || !size)
-		return (malloc(1));
 	mempoint = malloc(nmeb * size);
+	if (!mempoint)
+		return (NULL);
 	count = 0;
 	while (count < nmeb * size)
 		mempoint[count++] = 0;
@@ -28,7 +28,7 @@ void	*ft_calloc(int nmeb, int size)
 /*
 int    main (void)
 {
-    printf("%p\n", calloc(5, 3));
-    printf("%p\n", ft_calloc(5, 3));
+    printf("%p\n", calloc(3, 5));
+    printf("%p\n", ft_calloc(3, 5));
 }
 */

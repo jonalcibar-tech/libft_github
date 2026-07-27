@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/20 10:53:10 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/07/24 12:24:48 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/07/27 10:26:44 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 int 	ft_atoi(const char *nptr);
 void 	*ft_calloc(size_t nmeb, size_t size);
-//char	*ft_strdup(const char *s);
+char	*ft_strdup(const char *s);
 
 #endif

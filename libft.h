@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/20 10:53:10 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/07/27 13:23:44 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/07/28 15:12:31 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int 	ft_atoi(const char *nptr);
 void 	*ft_calloc(size_t nmeb, size_t size);
 char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start,size_t len);
-//char 	*ft_strjoin(char const *s1, char const *s2);
+char 	*ft_strjoin(char const *s1, char const *s2);
 //char 	*ft_strtrim(char const *s1, char const *set);
 //char	**ft_split(char const *s, char c);
 //char	*ft_itoa(int n);

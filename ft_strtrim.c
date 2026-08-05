@@ -6,42 +6,76 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 08:45:05 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/08/03 13:21:43 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/08/05 12:59:54 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *trimfwd(char , char )
+static	size_t ft_start(char const *s1, char const *set)
 {
-	
+	size_t	begin;
+	size_t	iset;
+	size_t	is1;
+
+	iset = 0;
+	is1 = 0;
+	begin = 0;
+	while (set[iset])
+	{	
+		while (s1[is1])
+		{
+			if (s1[is1] != set[iset])
+				break;
+		begin++;
+		is1++;
+		}
+	iset++;
+	}
+	return(begin);
+}
+static	size_t ft_trimend(char const *s1, char const *set)
+{
+	size_t	end;
+	size_t	iset;
+	size_t	is1;
+
+	iset = 0;
+	is1 = ft_strlen(s1);
+	end = ft_strlen(s1); 
+	while (set[iset])
+	{	
+		while (s1[is1])
+		{
+			if (s1[is1] != set[iset])
+				break;
+		end--;
+		is1--;
+		}
+	iset++;
+	}
+	return(end);
 }
 char *ft_strtrim(char const *s1, char const *set)
 {
-	char 	*temp;
-	size_t	counttemp;
-	size_t	countset;
+	size_t	begin;
+	size_t	len;
+	size_t	trimend;
 
-	*temp = ft_strdup (s1);
-
-	counttemp = 0;
-	countset = 0;
-	while (temp [counttemp]);
-	{
-		while (set[countset]);
-		{
-			temp = trimfowd(&temp, set[countset]);
-			temp = trimback(&temp, set[countset]);
-		}
-	}
-	return (temp);
+	if (!s1 || !set)
+        return (NULL);
+	begin = ft_start(s1, set);
+	trimend = ft_trimend(s1, set);
+	len = ft_strlen(s1) - begin - trimend;
+	return (ft_substr(s1, begin, len));
 }
-int	main(void)
-{
-	char const *s1[] = "HOLA MUNDO";
-	char const *set[] = "HO";
 
-	printf("%s", ft_strtrim, s1, set);
+int	main (void)
+{
+	char const s1[] = "HOLA MUNDO";
+	char const set[] = "HO";
+
+	printf("%s", ft_strtrim(s1, set));
 }
 
 /*

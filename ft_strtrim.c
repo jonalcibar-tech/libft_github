@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 08:45:05 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/08/06 16:09:46 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/08/10 13:21:25 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,19 @@ static	size_t ft_start(char const *s1, char const *set)
 	iset = 0;
 	is1 = 0;
 	begin = 0;
-	while (set[iset])
+	while (s1[is1])
 	{	
-		while (s1[is1])
+		while (set [iset])
 		{
-			if (s1[is1] != set[iset])
-				break;
-		begin++;
-		is1++;
+			if (s1[is1] == set[iset])
+				{
+					begin++;
+					iset = 0;
+					break;
+				}
+		iset++;
 		}
-	iset++;
+	is1++;
 	}
 	return(begin);
 }
@@ -63,22 +66,22 @@ char *ft_strtrim(char const *s1, char const *set)
 	size_t	trimend;
 
 	if (!s1 || !set)
-        return (NULL);
-	begin = ft_start(s1, set);
-	trimend = ft_trimend(s1, set);
-	len = trimend - begin +1;
+		return ft_strdup("");
+	begin = ft_start(s1, set);	
+	trimend = ft_trimend(s1, set) + 1;
+	len = trimend - begin;
 	printf("%zu %zu %zu\n", begin, trimend, len);
 
 	return (ft_substr(s1, begin, len));
 }
-
+/*
 int	main (void)
 {
-	char const s1[] = "HOLAHOLA MUNDOMUNDO";
-	char const set[] = "MUNDOA ";
+	char const s1[] = "HOLAHOLAMUNDO";
+	char const set[] = "HOLA";
 	printf("%s", ft_strtrim(s1, set));
 }
-
+*/
 /*
 Parámetros s1: La cadena de caracteres que debe ser recortada.
 set: Los caracteres a eliminar de la cadena en cuestión.

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim5.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 08:45:05 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/08/10 10:48:02 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/08/10 10:50:17 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ char *ft_strtrim(char const *s1, char const *set)
 int	main (void)
 {
 	char const s1[] = "HOLA";
-	char const set[] = " ";
+	char const set[] = "T";
 	printf("%s", ft_strtrim(s1, set));
 }
 

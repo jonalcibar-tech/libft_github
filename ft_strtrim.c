@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 08:45:05 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/08/10 13:21:25 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/08/10 15:38:17 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,9 @@ static	size_t ft_trimend(char const *s1, char const *set)
 		}
 	iset++;
 	}
-	return(end);
+	return(end + 1);
 }
+
 char *ft_strtrim(char const *s1, char const *set)
 {
 	size_t	begin;
@@ -66,19 +67,18 @@ char *ft_strtrim(char const *s1, char const *set)
 	size_t	trimend;
 
 	if (!s1 || !set)
-		return ft_strdup("");
-	begin = ft_start(s1, set);	
-	trimend = ft_trimend(s1, set) + 1;
+		return (NULL);
+	begin = ft_start(s1, set);
+	trimend = ft_trimend(s1, set);
 	len = trimend - begin;
 	printf("%zu %zu %zu\n", begin, trimend, len);
-
 	return (ft_substr(s1, begin, len));
 }
 /*
 int	main (void)
 {
-	char const s1[] = "HOLAHOLAMUNDO";
-	char const set[] = "HOLA";
+	char const s1[] = "HOLA";
+	char const set[] = " ";
 	printf("%s", ft_strtrim(s1, set));
 }
 */

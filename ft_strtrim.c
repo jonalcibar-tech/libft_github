@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 08:45:05 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/08/10 15:38:17 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/08/14 10:44:05 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,13 @@ char *ft_strtrim(char const *s1, char const *set)
 
 	if (!s1 || !set)
 		return (NULL);
+	if (ft_strlen(s1) == 0)
+        return (ft_strdup(""));
 	begin = ft_start(s1, set);
 	trimend = ft_trimend(s1, set);
 	len = trimend - begin;
-	printf("%zu %zu %zu\n", begin, trimend, len);
+	if (len <= 0 || begin >= ft_strlen(s1))
+        return (ft_strdup(""));
 	return (ft_substr(s1, begin, len));
 }
 /*

@@ -13,7 +13,7 @@ int main(void)
 
     matriz = malloc((words + 1) * sizeof(char *));
     if (!matriz)
-      return 'NULL';
+      return (NULL);
     while (iwords < words)
     {
       matriz[iwords] = malloc((leters + 1) * sizeof(char));

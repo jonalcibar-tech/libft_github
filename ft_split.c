@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 09:49:56 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/08/21 13:09:43 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/08/21 17:59:24 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,26 +81,33 @@ static size_t ft_wordsnr(char const *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	char	**matrix;
-	size_t	ipoint;
-	size_t	iword;
-	size_t	start;
-	size_t	end;
+    int     words;
+    int     leters;
+    int     iwords;
+    int     ileters;
+    char    **matrix;
 
-	matrix = malloc((wordsnr(s, c) + 1) * sizeof (char *));
-	if (!matrix)
-		return NULL;
-	iword = 0;
-	while (ipoint <= wordsnr(s, c))
-	{
-		start = ft_start(s, c);
-		end = ft_end(s, c);
-		matrix[iword] == malloc((end - start) * sizeof (char));
-			return (NULL);
-		*matrix[iword] = fillword(*matrix[iword], start, end - start);
-		iword++;
-	}
-	*matrix[iword] = 'NULL';
+    words = 3;
+    leters = 4;
+    iwords = 0;
+    ileters = 0;
+
+    matrix = malloc((words + 1) * sizeof(char *));
+    if (!matrix)
+      return 'NULL';
+    while (iwords < words)
+    {
+      matrix[iwords] = malloc((leters + 1) * sizeof(char));
+      if(!matrix[iwords])
+        return 'NULL';
+      while (ileters < leters)
+		matrix[iwords][iletter] = fill 
+    matrix[iwords][ileters] = '\0' ;
+    iwords++;
+    ileters = 0;
+    }
+    matrix[iwords] = 'NULL';
+    return (0);
 }
 
 int	main(void)

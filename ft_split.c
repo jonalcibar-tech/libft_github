@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 09:49:56 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/08/19 12:03:36 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/08/21 13:09:43 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,21 +82,25 @@ static size_t ft_wordsnr(char const *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**matrix;
-	size_t	iwords;
+	size_t	ipoint;
+	size_t	iword;
 	size_t	start;
 	size_t	end;
 
-	matrix = ft_calloc((wordsnr(s, c) + 1), sizeof(char *));
+	matrix = malloc((wordsnr(s, c) + 1) * sizeof (char *));
 	if (!matrix)
 		return NULL;
-	iwords = 0;
-	while (iwords <= wordsnr(s,c))
+	iword = 0;
+	while (ipoint <= wordsnr(s, c))
 	{
 		start = ft_start(s, c);
 		end = ft_end(s, c);
-		matrix[iwords] == malloc (end - start);
+		matrix[iword] == malloc((end - start) * sizeof (char));
+			return (NULL);
+		*matrix[iword] = fillword(*matrix[iword], start, end - start);
+		iword++;
 	}
-	
+	*matrix[iword] = 'NULL';
 }
 
 int	main(void)

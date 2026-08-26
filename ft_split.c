@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 09:49:56 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/08/21 17:59:24 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/08/26 12:05:41 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,20 +65,20 @@ static	size_t	ft_end(char const *s1, char const *set)
 static size_t ft_wordsnr(char const *s, char c)
 // funciona contando palabras pero no las mide
 {
-	size_t	countwords;
+	size_t	iwords;
 	size_t	i;
+	size_t	repeat;
 
 	if (s == NULL)
 		return(0);
-	countwords = 0 + (s[0] != 0);
+	iwords = 0;
 	i = 0;
+	repeat = 0;
 	while (s[i])
-		countwords+= (s[i++] == c);
-	return(countwords);
+		iwords+= (s[i++] == c);
+	return(iwords);
 }
-
-
-
+/*
 char	**ft_split(char const *s, char c)
 {
     int     words;
@@ -87,7 +87,7 @@ char	**ft_split(char const *s, char c)
     int     ileters;
     char    **matrix;
 
-    words = 3;
+    words = ft_wordsnr(s,c);
     leters = 4;
     iwords = 0;
     ileters = 0;
@@ -101,7 +101,7 @@ char	**ft_split(char const *s, char c)
       if(!matrix[iwords])
         return 'NULL';
       while (ileters < leters)
-		matrix[iwords][iletter] = fill 
+		matrix[iwords][ileters] = 
     matrix[iwords][ileters] = '\0' ;
     iwords++;
     ileters = 0;
@@ -109,13 +109,13 @@ char	**ft_split(char const *s, char c)
     matrix[iwords] = 'NULL';
     return (0);
 }
-
+*/
 int	main(void)
 {
-	const char *s = NULL;
+	const char *s = "HOLA,LOLA,,";
 	char  c;
 
-	c = ' ';
+	c = ',';
 	printf("%zu", ft_wordsnr(s, c));
 	//printf("%p?", ft_split(s, c));
 	return(0);

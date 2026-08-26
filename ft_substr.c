@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 12:21:45 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/07/28 13:02:17 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/08/26 09:06:53 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	main(void)
 }
 */
 /*
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 Reserva memoria (con malloc(3)) y devuelve una
 subcadena de caracteres de la cadena ‘s’.
 La subcadena comienza en el índice ‘start ’ y tiene

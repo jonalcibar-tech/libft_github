@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 11:36:29 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/05/28 09:47:54 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/08/26 08:44:34 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,9 @@ int	main(void)
 	printf("%s\n", string);
 	return (0);
 }
+*/
+/*
+The  bzero()  function  erases  the  data  in the n bytes of the memoryrting
+at the location pointed to by s, by writing zeros (bytes  containing '\0')
+to that area.
 */

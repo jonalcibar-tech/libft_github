@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 09:49:56 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/08/31 13:20:55 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/08/31 15:21:07 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ static	size_t	ft_end(char const *s1, char const *set)
 	return (end + 1);
 }
 
-
 static size_t ft_wordsnr(char const *s, char c)
 {
     size_t iwords;
@@ -87,49 +86,47 @@ static size_t ft_wordsnr(char const *s, char c)
     return(iwords);
 }
 
-/*
+static void ft_fillword(char *word, size_t length)
+{
+	
+}
+
 char	**ft_split(char const *s, char c)
 {
-    int     words;
-    int     leters;
-    int     iwords;
-    int     ileters;
-    char    **matrix;
+    size_t	leters;
+    size_t	iwords;
+    size_t	ileters;
+    char	**matrix;
 
-    words = ft_wordsnr(s,c);
     leters = 4;
     iwords = 0;
     ileters = 0;
-
-    matrix = malloc((words + 1) * sizeof(char *));
+    matrix = malloc((ft_wordsnr(s,c) + 1) * sizeof(char *));
     if (!matrix)
       return 'NULL';
-    while (iwords < words)
+    while (iwords < ft_wordsnr(s,c))
     {
-      matrix[iwords] = malloc((leters + 1) * sizeof(char));
-      if(!matrix[iwords])
-        return 'NULL';
-      while (ileters < leters)
-		matrix[iwords][ileters] = 
-    matrix[iwords][ileters] = '\0' ;
+	   	matrix[iwords] = malloc((ft_strlen (matrix[iwords]) + 1) * sizeof(char));
+		if(!matrix[iwords])
+        	return 'NULL';
+		ft_fillword(matrix[iwords], ft_strlen(matrix[iwords]));
     iwords++;
     ileters = 0;
     }
     matrix[iwords] = 'NULL';
     return (0);
 }
-*/
+
 int	main(void)
 {
 	const char *s = ",,,Hola,,,mundo,,,";
 	char  c;
 
 	c = ',';
-	printf("%zu", ft_wordsnr(s, c));
-	//printf("%p?", ft_split(s, c));
+	//printf("%zu", ft_wordsnr(s, c));
+	printf("%p?", ft_split(s, c));
 	return(0);
 }
-
 /*
 s: La cadena que se va a dividir.
 c: El carácter delimitador.

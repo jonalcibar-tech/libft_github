@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 09:49:56 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/08/26 12:05:41 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/08/31 13:20:55 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,21 +63,30 @@ static	size_t	ft_end(char const *s1, char const *set)
 
 
 static size_t ft_wordsnr(char const *s, char c)
-// funciona contando palabras pero no las mide
 {
-	size_t	iwords;
-	size_t	i;
-	size_t	repeat;
+    size_t iwords;
+    size_t i;
+    size_t inword;
 
-	if (s == NULL)
-		return(0);
-	iwords = 0;
-	i = 0;
-	repeat = 0;
-	while (s[i])
-		iwords+= (s[i++] == c);
-	return(iwords);
+    if (s == NULL)
+        return(0);
+    iwords = 0;
+    i = 0;
+    inword = 1;
+    while (s[i])
+    {
+        if(s[i] != c && inword == 0)
+        {
+            iwords++;
+            inword = 1;
+        }
+        else if (s[i] == c)
+          inword = 0;
+        i++;
+    }
+    return(iwords);
 }
+
 /*
 char	**ft_split(char const *s, char c)
 {
@@ -112,7 +121,7 @@ char	**ft_split(char const *s, char c)
 */
 int	main(void)
 {
-	const char *s = "HOLA,LOLA,,";
+	const char *s = ",,,Hola,,,mundo,,,";
 	char  c;
 
 	c = ',';

@@ -105,7 +105,7 @@ char	**ft_split(char const *s, char c)
 		if (!matrix[iwords])
         	return (NULL);
 		while (matrix[iwords])
-			matrix[iwords][0] = ft_strdup(matrix[iwords]);
+			matrix[iwords][0] = ft_strdup(&matrix[iwords]);
     iwords++;
     ileters = 0;
     }

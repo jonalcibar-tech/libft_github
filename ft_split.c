@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 09:49:56 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/09/02 12:48:27 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/09/02 15:17:31 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,6 @@ static size_t ft_wordsnr(char const *s, char c)
     return(iwords);
 }
 
-static void ft_fillword(char *word, size_t length)
-{
-	
-	strlcpy(char *dst, const char *src, size_t size);
-}
-
 char	**ft_split(char const *s, char c)
 {
     size_t	leters;
@@ -104,18 +98,18 @@ char	**ft_split(char const *s, char c)
     ileters = 0;
     matrix = malloc((ft_wordsnr(s,c) + 1) * sizeof(char *));
     if (!matrix)
-      return 'NULL';
+      return (NULL);
     while (iwords < ft_wordsnr(s,c))
     {
 	   	matrix[iwords] = malloc((ft_strlen (matrix[iwords]) + 1) * sizeof(char));
-		if(!matrix[iwords])
-        	return 'NULL';
-		ft_fillword(matrix[iwords], ft_strlen(matrix[iwords]));
-		//size_t strlcpy(char *dst, const char *src, size_t size);
+		if (!matrix[iwords])
+        	return (NULL);
+		while (matrix[iwords])
+			matrix[iwords][0] = ft_strdup(matrix[iwords]);
     iwords++;
     ileters = 0;
     }
-    matrix[iwords] = 'NULL';
+    matrix[iwords] = (NULL);
     return (0);
 }
 

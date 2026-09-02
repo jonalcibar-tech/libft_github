@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 09:49:56 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/08/31 15:21:07 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/09/02 12:48:27 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ static size_t ft_wordsnr(char const *s, char c)
 static void ft_fillword(char *word, size_t length)
 {
 	
+	strlcpy(char *dst, const char *src, size_t size);
 }
 
 char	**ft_split(char const *s, char c)
@@ -110,6 +111,7 @@ char	**ft_split(char const *s, char c)
 		if(!matrix[iwords])
         	return 'NULL';
 		ft_fillword(matrix[iwords], ft_strlen(matrix[iwords]));
+		//size_t strlcpy(char *dst, const char *src, size_t size);
     iwords++;
     ileters = 0;
     }

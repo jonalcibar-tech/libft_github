@@ -1,67 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/18 09:49:56 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/09/02 15:17:31 by jalcibar         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include	"libft.h"
-
-static	size_t	ft_start(char const *s1, char const *set)
-{
-	size_t	begin;
-	size_t	iset;
-	size_t	is1;
-
-	iset = 0;
-	is1 = 0;
-	begin = 0;
-	while (s1[is1])
-	{
-		while (set [iset])
-		{
-			if (s1[is1] == set[iset])
-			{
-				begin++;
-				iset = 0;
-				break ;
-			}
-			iset++;
-		}
-		is1++;
-	}
-	return (begin);
-}
-
-static	size_t	ft_end(char const *s1, char const *set)
-{
-	size_t	end;
-	size_t	iset;
-	size_t	is1;
-
-	iset = 0;
-	is1 = ft_strlen(s1) - 1;
-	end = ft_strlen(s1) - 1;
-	while (set[iset])
-	{
-		while (s1[is1])
-		{
-			if (s1[is1] != set[iset])
-				break ;
-			end--;
-			is1--;
-		}
-		iset++;
-	}
-	return (end + 1);
-}
-
-static size_t ft_wordsnr(char const *s, char c)
+#include "libft.h"
+size_t ft_countwor(char const *s, char c)
+// funciona contando palabras pero no las mide
 {
     size_t iwords;
     size_t i;
@@ -85,52 +24,22 @@ static size_t ft_wordsnr(char const *s, char c)
     }
     return(iwords);
 }
-
-char	**ft_split(char const *s, char c)
+static char	**ft_split(char const *s, char c)
 {
-    size_t	leters;
-    size_t	iwords;
-    size_t	ileters;
-    char	**matrix;
+	char	**matrix;
 
-    leters = 4;
-    iwords = 0;
-    ileters = 0;
-    matrix = malloc((ft_wordsnr(s,c) + 1) * sizeof(char *));
-    if (!matrix)
+	matrix = malloc((ft_countwords(s,c) + 1) * sizeof(char *));
+	if (!matrix)
       return (NULL);
-    while (iwords < ft_wordsnr(s,c))
-    {
-	   	matrix[iwords] = malloc((ft_strlen (matrix[iwords]) + 1) * sizeof(char));
-		if (!matrix[iwords])
-        	return (NULL);
-		while (matrix[iwords])
-			matrix[iwords][0] = ft_strdup(&matrix[iwords]);
-    iwords++;
-    ileters = 0;
-    }
-    matrix[iwords] = (NULL);
-    return (0);
+	ft_fillpoint()
 }
-
 int	main(void)
 {
-	const char *s = ",,,Hola,,,mundo,,,";
+	const char *s = ",Hola,,, mundo,,";
 	char  c;
 
 	c = ',';
-	//printf("%zu", ft_wordsnr(s, c));
-	printf("%p?", ft_split(s, c));
+	printf("%zu", ft_countwords(s, c));
+	//printf("%p?", ft_split(s, c));
 	return(0);
 }
-/*
-s: La cadena que se va a dividir.
-c: El carácter delimitador.
-Devuelve el array de nuevas cadenas resultante de la división.
-NULL si falla cualquier reserva de memoria.
-La estructura devuelta debe liberarse utilizando:
-1) free() sobre cada cadena del arreglo;
-2) free() sobre el arreglo.
-Funciones autorizadas
-malloc, free
-*/

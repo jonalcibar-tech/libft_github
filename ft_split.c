@@ -1,5 +1,5 @@
 #include "libft.h"
-size_t ft_countwor(char const *s, char c)
+size_t ft_countwords(char const *s, char c)
 // funciona contando palabras pero no las mide
 {
     size_t iwords;

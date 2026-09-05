@@ -35,7 +35,7 @@ static char	**ft_split(char const *s, char c)
 }
 int	main(void)
 {
-	const char *s = ",Hola,,, mundo,,";
+	const char *s = ",Hola,,,mundo,,";
 	char  c;
 
 	c = ',';

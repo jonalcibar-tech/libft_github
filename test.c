@@ -1,6 +1,6 @@
 char    *ft_substr(char const *s, unsigned int start, int len)
 {
-    char    *result;
+    char	*result;
     int    slen;
     int    chnum;
 

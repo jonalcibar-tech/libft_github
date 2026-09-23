@@ -42,6 +42,7 @@ static	size_t	ft_end(char const *s1, char const *set, size_t wordnr)
 
 }
 
+
 int	main(void)
 {
 	const char *s = ",,Hola,,,mundo,,,h,p,";

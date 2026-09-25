@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/23 18:33:50 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/09/25 17:41:05 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/09/25 17:49:26 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,11 @@ char	*ft_itoa(int n)
 	
 	//cuenta nº caracteres de string considera 0s y '-', no hay funcion que lo haga
 	n_len = ft_len(n_long),
+	//reserva memoria para ello + NULL y devuelve NULL si no lo logra
 	n_string = malloc(((n_len)+ 1) * sizeof(char));
 	if(!n_string)
 		return (NULL);
+	//copia caracter por caracter ¿dcha a izq?
 	i = n_len + 1;
 	n_string[i] = '\0';
 	while (i)
@@ -59,8 +61,7 @@ char	*ft_itoa(int n)
 	}
 	n_string[i] = '\0';
 	return (n_string);
-	
-	//reserva memoria para ello + NULL y devuelve NULL si no lo logra
+
 	//copia caracter por caracter ¿dcha a izq?
 	//libera la memoria.
 }

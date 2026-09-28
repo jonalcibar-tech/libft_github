@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/23 18:33:50 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/09/25 17:49:26 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/09/28 13:19:32 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,23 +43,33 @@ char	*ft_itoa(int n)
 	char	*n_string;
 	size_t	i;
 
-	n_long = n;
 	
 	//cuenta nº caracteres de string considera 0s y '-', no hay funcion que lo haga
+	n_long = (long)n;
 	n_len = ft_len(n_long),
 	//reserva memoria para ello + NULL y devuelve NULL si no lo logra
 	n_string = malloc(((n_len)+ 1) * sizeof(char));
 	if(!n_string)
 		return (NULL);
 	//copia caracter por caracter ¿dcha a izq?
-	i = n_len + 1;
-	n_string[i] = '\0';
+	n_string[n_len] = '\0';
+	i = n_len - 1;
 	while (i)
 	{	
-			n_string[i] = n/(10*i);
-			i--;
+		n_string[i] = 48 + n % 10;
+		printf("%zu %c\n", i, n_string[i]);
+		n = (int)(n / 10);
+		i--;
 	}
-	n_string[i] = '\0';
+	if (n < 0)
+	{
+		n_string[0] = '-';
+	}
+	else
+	{
+		n_string[0] = n;
+	}
+	printf("%zu %c\n", i, n_string[0]);
 	return (n_string);
 
 	//copia caracter por caracter ¿dcha a izq?
@@ -70,9 +80,12 @@ char	*ft_itoa(int n)
 int	main(void)
 {
 	long	n;
-	n =	-123456;
+	n =	191435;
 
-	printf("%s", ft_itoa(n));
+	//ft_itoa(n);
+	//printf("%s", ft_itoa(n));
+	printf("\n%zu %s", ft_len(n), ft_itoa(n));
+	return (0);
 }
 
 /*

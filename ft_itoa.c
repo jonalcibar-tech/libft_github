@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/23 18:33:50 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/09/28 13:19:32 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/09/28 16:45:28 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,38 +44,32 @@ char	*ft_itoa(int n)
 	size_t	i;
 
 	
-	//cuenta nº caracteres de string considera 0s y '-', no hay funcion que lo haga
-	n_long = (long)n;
-	n_len = ft_len(n_long),
-	//reserva memoria para ello + NULL y devuelve NULL si no lo logra
-	n_string = malloc(((n_len)+ 1) * sizeof(char));
-	if(!n_string)
-		return (NULL);
-	//copia caracter por caracter ¿dcha a izq?
-	n_string[n_len] = '\0';
-	i = n_len - 1;
-	while (i)
-	{	
-		n_string[i] = 48 + n % 10;
-		printf("%zu %c\n", i, n_string[i]);
-		n = (int)(n / 10);
-		i--;
-	}
-	if (n < 0)
-	{
-		n_string[0] = '-';
-	}
-	else
-	{
-		n_string[0] = n;
-	}
-	printf("%zu %c\n", i, n_string[0]);
-	return (n_string);
+    //cuenta nº caracteres de string considera 0s y '-', no hay funcion que lo haga
+    n_long = (long)n;
+    n_len = ft_len(n_long),
+    //reserva memoria para ello + NULL y devuelve NULL si no lo logra
+    n_string = malloc(((n_len)+ 1) * sizeof(char));
+    if(!n_string)
+        return (NULL);
+    //copia caracter por caracter ¿dcha a izq?
+    n_string[n_len] = '\0';
+    i = n_len - 1;
+    while (i)
+    {    
+        n_string[i] = 48 + (n % 10)*((n_long < 0) ? -1 : 1);
+        printf("%zu %c\n", i, n_string[i]);
+        n = (int)(n / 10);
+        i--;
+    }
+    n_string [0] = 48 + n;
+    if (n_long < 0)
+          n_string [0] = '-';
+    printf("%zu %c\n", i, n_string[0]);
 
-	//copia caracter por caracter ¿dcha a izq?
-	//libera la memoria.
+    //libera la memoria.
+    return (n_string);
+
 }
-
 
 int	main(void)
 {

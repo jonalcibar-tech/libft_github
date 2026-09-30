@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/23 18:33:50 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/09/30 15:00:35 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/09/30 16:28:13 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,30 @@ static size_t ft_len(long n)
 		}
 	return (i);
 }
+static void fillstr(char *n_string, int n)
+{
+	size_t	n_len;
+	size_t	i;
+	long	n_long;
+	int		n_sign;
 
+	n_long = (long)n;
+	n_len = ft_len(n);
+	n_sign = (n >= 0) - (n < 0);
+	n_string[n_len] = '\0';
+	i = n_len - 1;
+    while (i)
+	{
+		n_string[i] = 48 + (n % 10) * n_sign;
+        //printf("%zu %c\n", i, n_string[i]);
+        n = (int)(n / 10);
+        i--;
+    }
+	n_string [0] = 48 + n;
+    if (n_sign < 0)
+          n_string [0] = '-';
+    //printf("%zu %c\n", i, n_string[0]);
+}
 
 char	*ft_itoa(int n)
 {
@@ -52,29 +75,16 @@ char	*ft_itoa(int n)
     if(!n_string)
         return (NULL);
     //copia caracter por caracter ¿dcha a izq?
-    n_string[n_len] = '\0';
-    i = n_len - 1;
-    while (i)
-    {    
-        n_string[i] = 48 + (n % 10)*((n_long < 0) ? -1 : 1);
-        printf("%zu %c\n", i, n_string[i]);
-        n = (int)(n / 10);
-        i--;
-    }
-    n_string [0] = 48 + n;
-    if (n_long < 0)
-          n_string [0] = '-';
-    printf("%zu %c\n", i, n_string[0]);
-
+	fillstr(n_string, n);
     //libera la memoria.
+	//free(n_string);
     return (n_string);
-
 }
 
 int	main(void)
 {
 	long	n;
-	n =	191435;
+	n =	-191435;
 
 	//ft_itoa(n);
 	//printf("%s", ft_itoa(n));

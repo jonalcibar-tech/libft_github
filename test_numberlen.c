@@ -1,3 +1,4 @@
+//Length of a long number in characters, including the '-' if negative
 
 #include	"libft.h"
 

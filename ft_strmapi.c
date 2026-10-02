@@ -6,12 +6,34 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 10:57:03 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/10/01 13:19:29 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/10/02 09:45:38 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char));
+#include "libft.h"
 
+static char upper(unsigned int pos, char const *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] && (i < pos))
+		i++;
+	return s[i];
+}
+
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+
+}
+
+int	main(void)
+{
+	char const	*s;
+	unsigned int pos;
+
+	printf("%s", upper(2, "lola"));
+}
 /*
 char *ft_strmapi(char const *s, char (*f)(unsigned int, char));
 s: La cadena sobre la que iterar.

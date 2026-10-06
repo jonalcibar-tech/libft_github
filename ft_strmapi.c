@@ -6,51 +6,50 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 10:57:03 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/10/06 13:06:04 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/10/06 16:27:41 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static char *upper(unsigned int pos, char const *s)
+/*
+static char	upper(unsigned int pos, char s)
 {
-	{	
-		if ((i == pos) && (s[i] >= 'a') && (s[i] <= 'z'))
-		{
-		s_upper[i] = s[i]-32;
-		}
-		else
-		{
-		s_upper[i] = s[i];
-		}
-	i++;
+	if ((pos == 1) && (s >= 'a') && (s <= 'z'))
+	{
+		return (s - 32);
+	}
+	else
+	{
+		return (s);
 	}
 }
+*/
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int pos, char c))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int pos, char c))
 {
-	size_t	i;
-	char	*s_upper;
+	unsigned int	i;
+	char			*s_upper;
 
-	s_upper = malloc(ft_strlen(s)* sizeof(char));
+	s_upper = malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (!s_upper)
-		return(NULL);
+		return (NULL);
 	i = 0;
 	while (s[i])
-		s_upper[i] = f(i++, pos);
-}
+	{
+		s_upper[i] = (*f)(i, s[i]);
+		i++;
+	}
 	s_upper[i] = '\0';
 	return (s_upper);
-
 }
-
+/*
 int	main(void)
 {
-	char const	*s = "lola";
-	unsigned int pos = 2;
+	char const		*s = "pedro";
 
-	printf("%c", ft_strmapi(s, upper));
+	printf("%s", ft_strmapi(s, upper));
 }
+*/
 /*
 char *ft_strmapi(char const *s, char (*f)(unsigned int, char));
 s: La cadena sobre la que iterar.

@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 10:57:03 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/10/06 12:32:56 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/10/06 13:06:04 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,8 @@
 
 static char *upper(unsigned int pos, char const *s)
 {
-	size_t	i;
-	char	*s_upper;
-
-	s_upper = malloc(ft_strlen(s)* sizeof(char));
-	if (!s_upper)
-		return(NULL);
-	i = 0;
-	while (s[i])
 	{	
-		if ((i == pos) && (s[i] >= 97) && (s[i] <= 122))
+		if ((i == pos) && (s[i] >= 'a') && (s[i] <= 'z'))
 		{
 		s_upper[i] = s[i]-32;
 		}
@@ -33,16 +25,24 @@ static char *upper(unsigned int pos, char const *s)
 		}
 	i++;
 	}
+}
+
+char *ft_strmapi(char const *s, char (*f)(unsigned int pos, char c))
+{
+	size_t	i;
+	char	*s_upper;
+
+	s_upper = malloc(ft_strlen(s)* sizeof(char));
+	if (!s_upper)
+		return(NULL);
+	i = 0;
+	while (s[i])
+		s_upper[i] = f(i++, pos);
+}
 	s_upper[i] = '\0';
 	return (s_upper);
-}
-/*
-char *ft_strmapi(char const *s, char (*f)(unsigned int pos, char s))
-{
-	
 
 }
-*/
 
 int	main(void)
 {

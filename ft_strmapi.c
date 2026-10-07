@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 10:57:03 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/10/06 16:27:41 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/10/07 08:04:09 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int pos, char c))
 	unsigned int	i;
 	char			*s_upper;
 
+	if (s == NULL || (*f) == NULL)
+		return (NULL);
 	s_upper = malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (!s_upper)
 		return (NULL);

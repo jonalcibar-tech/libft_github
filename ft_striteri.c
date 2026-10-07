@@ -6,49 +6,43 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 08:28:14 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/10/07 09:07:48 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/10/07 11:08:44 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-char *upper(unsigned int pos, char s)
+/*
+static void	upper(unsigned int pos, char *s)
 {
-	if ((pos == 1) && (s >= 'a') && (s <= 'z'))
-	{
-		return (s - 32);
-	}
-	else
-	{
-		return (s);
-	}
+	if ((pos == 0) && (*s >= 'a') && (*s <= 'z'))
+		*s = (*s - 32);
 }
+*/
 
-
-void ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_striteri(char *s, void (*f)(unsigned int pos, char *c))
 {
 	unsigned int	i;
 
 	if (s == NULL || (*f) == NULL)
-		return (NULL);
+		return ;
 	i = 0;
 	while (s[i])
 	{
-		s[i] = (*f)(i, s[i]);
+		(*f)(i, &s[i]);
 		i++;
 	}
 }
 
-
+/*
 int	main(void)
 {
-	char const		*s = "pedro";
+	char	s[] = "pedro";
 
 	ft_striteri(s, upper);
-	printf("%s", s)
+	printf("%s", s);
 }
-
+*/
 /*
 void ft_striteri(char *s, void (*f)(unsigned int,char*));
 s: La cadena sobre la que iterar.

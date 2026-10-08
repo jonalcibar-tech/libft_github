@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 11:35:42 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/10/08 15:18:39 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/10/08 16:58:15 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_putstr_fd(char *s, int fd)
 		write (fd, s, strlen ((const char *)s));
 }
 /*
+
 int main(void)
 {
 	char	str[] = "LOLA";

@@ -1,42 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/08 11:35:42 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/10/09 09:05:32 by jalcibar         ###   ########.fr       */
+/*   Created: 2026/10/09 08:50:04 by jalcibar          #+#    #+#             */
+/*   Updated: 2026/10/09 09:25:52 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
 	if (s != NULL)
-		write (fd, s, ft_strlen ((const char *)s));
+	{
+		write (fd, (const void *)s, ft_strlen((const char *)s));
+		write (fd, "\n", 1);
+	}
 }
 /*
-
 int main(void)
 {
 	char	str[] = "LOLA";
 
-	ft_putstr_fd(str, 1);
+	ft_putendl_fd(str, 1);
 	return(0);
 }
 */
 /*
-ft_putstr_fd
-Prototipo void ft_putstr_fd(char *s, int fd);
-Archivos a entregar
--
+void ft_putendl_fd(char *s, int fd);
+
 Parámetros s: La cadena a enviar.
 fd: El descriptor de archivo sobre el que escribir.
 Valor devuelto Nada
-Funciones autorizadas
-write
-Descripción Envía la cadena ‘s’ al descriptor de archivo
-especificado.
+Funciones autorizadas write
+Envía la cadena ‘s’ al descriptor de archivo dado, seguido de un salto de línea.
 */

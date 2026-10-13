@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 09:23:48 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/10/13 13:32:36 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/10/13 14:40:18 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(void)
 }
 */
 /*
-void  ft_putnbr_fd(int n, int fd);
+voft_putnbr_fd(int n, int fd);
 n, el número entero que se envía.
 fd, el descriptor de archivo sobre el que escribir.
 Valor devuelto Nada, Funciones autorizadas write

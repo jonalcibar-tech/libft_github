@@ -6,7 +6,7 @@
 /*   By: jalcibar <jalcibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/20 10:53:10 by jalcibar          #+#    #+#             */
-/*   Updated: 2026/10/09 09:35:49 by jalcibar         ###   ########.fr       */
+/*   Updated: 2026/10/13 13:24:38 by jalcibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ void	ft_striteri(char *s, void (*f)(unsigned int pos, char *c));
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
-//void	ft_putnbr_fd(int n, int fd);
+void	ft_putnbr_fd(int n, int fd);
 
 #endif
